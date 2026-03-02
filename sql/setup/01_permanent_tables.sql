@@ -146,6 +146,7 @@ CREATE TABLE IF NOT EXISTS stats.team_stats (
     season_elo_delta                FLOAT,
     luck_score                      FLOAT,
     luck_display                    INT,
+    home_field_advantage            FLOAT,
     updated_at                      TIMESTAMPTZ DEFAULT NOW(),
     PRIMARY KEY (uid, league_season)
 );

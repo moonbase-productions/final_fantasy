@@ -37,8 +37,8 @@ CREATE TABLE derived.assets_season_to_date AS
     , calc_points AS (
         SELECT
             *
-            , CAST(1.0 * wins / (wins + losses + draws) AS FLOAT)       AS win_percentage
-            , CAST(ROUND(100.0 * wins / (wins + losses + draws)) AS INT) AS points
+            , CAST((wins + 0.5 * draws) / (wins + losses + draws) AS FLOAT) AS win_percentage
+            , CAST(ROUND(100.0 * (wins + 0.5 * draws) / (wins + losses + draws)) AS INT) AS points
         FROM by_week
     )
     SELECT

@@ -45,6 +45,10 @@ class Settings(BaseSettings):
     # Supabase upsert batch size
     UPSERT_CHUNK_SIZE: ClassVar[int] = 100
 
+    # Auto-activation: activate whitelisted leagues when events are within N days
+    AUTO_ACTIVATE_ENABLED: ClassVar[bool] = True
+    AUTO_ACTIVATE_LOOKAHEAD_DAYS: ClassVar[int] = 14
+
     # Starting Elo for teams with no history
     INIT_ELO: ClassVar[int] = 1500
 

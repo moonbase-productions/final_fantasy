@@ -45,10 +45,13 @@ CREATE TABLE derived.events_future_elos AS
                    home_prv.end_of_season_elo)                      AS team_elo_home
         , COALESCE(away_cur.end_of_season_elo,
                    away_prv.end_of_season_elo)                      AS team_elo_away
+        , COALESCE(home_cur.home_field_advantage,
+                   home_prv.home_field_advantage, 0)                AS hfa
         , 1.0 / (
             POWER(10,
                 -(
-                    COALESCE(home_cur.end_of_season_elo, home_prv.end_of_season_elo)
+                    (COALESCE(home_cur.end_of_season_elo, home_prv.end_of_season_elo)
+                     + COALESCE(home_cur.home_field_advantage, home_prv.home_field_advantage, 0))
                   - COALESCE(away_cur.end_of_season_elo, away_prv.end_of_season_elo)
                 ) / 400.0
             ) + 1
@@ -57,7 +60,8 @@ CREATE TABLE derived.events_future_elos AS
             POWER(10,
                 -(
                     COALESCE(away_cur.end_of_season_elo, away_prv.end_of_season_elo)
-                  - COALESCE(home_cur.end_of_season_elo, home_prv.end_of_season_elo)
+                  - (COALESCE(home_cur.end_of_season_elo, home_prv.end_of_season_elo)
+                     + COALESCE(home_cur.home_field_advantage, home_prv.home_field_advantage, 0))
                 ) / 400.0
             ) + 1
           )                                                         AS team_away_win_prob

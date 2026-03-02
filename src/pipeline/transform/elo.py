@@ -153,6 +153,11 @@ def compute_elo_stats(
         ["league_id", "league_season"]
     )["end_of_season_elo"].rank(ascending=False, method="first").fillna(0).astype(int)
 
+    # Attach per-league HFA so SQL queries can use it for future predictions
+    summary["home_field_advantage"] = summary["league_id"].map(
+        home_field_advantage_by_league
+    ).fillna(0.0).round(2)
+
     summary["updated_at"] = datetime.now(timezone.utc).isoformat()
 
     logger.info(

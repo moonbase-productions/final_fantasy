@@ -1,6 +1,7 @@
 from __future__ import annotations
 import logging
 import re
+from collections import defaultdict
 from typing import Any, Optional
 
 import pandas as pd
@@ -8,6 +9,19 @@ import pandas as pd
 from pipeline.config import settings
 
 logger = logging.getLogger(__name__)
+
+
+def _safe_int(val: object, default: int = 99) -> int:
+    """Convert to int, returning *default* for None/NaN/invalid."""
+    if val is None:
+        return default
+    try:
+        v = float(val)
+        if v != v:  # NaN check
+            return default
+        return int(v)
+    except (ValueError, TypeError):
+        return default
 
 
 # ---------------------------------------------------------------------------
@@ -54,6 +68,19 @@ def sanitize_score(score_val: Any) -> Optional[float]:
 
 
 # ---------------------------------------------------------------------------
+# Points maps for multi-competitor sports
+# ---------------------------------------------------------------------------
+
+def _get_points_map(league_sport: str) -> dict[int, float]:
+    """Return the championship points map for a multi-competitor sport."""
+    sport_lower = (league_sport or "").lower()
+    if "nascar" in sport_lower:
+        return settings.NASCAR_POINTS
+    # Default: F1-style points (also used for Formula E, F2, UCI)
+    return settings.F1_POINTS
+
+
+# ---------------------------------------------------------------------------
 # Sport-type-specific event normalization
 # ---------------------------------------------------------------------------
 
@@ -65,16 +92,20 @@ def normalize_events(
 
     For 'standard' sports: no change — scores already in home/away format.
     For 'binary' sports: replace scores with 1.0 (win) / 0.0 (loss) / 0.5 (draw).
-    For 'multi_competitor' sports: decompose each race into pairwise events.
+    For 'multi_competitor' sports: if events have finish_position data, group
+        by race and decompose into pairwise matchups. Otherwise, normalize like
+        binary (winner/loser).
 
     Args:
         events: list of raw event dicts (from extract layer)
         sport_type_map: {league_id -> sport_type} mapping from league_registry
 
     Returns:
-        Normalized event list. Multi-competitor leagues produce more rows than input.
+        Normalized event list. Multi-competitor leagues may produce more rows.
     """
     normalized: list[dict] = []
+    # Collect multi-competitor events for batch processing
+    multi_competitor_events: list[dict] = []
 
     for event in events:
         league_id = event.get("league_id")
@@ -90,13 +121,14 @@ def normalize_events(
         if sport_type == "binary":
             normalized.extend(_normalize_binary(event))
         elif sport_type == "multi_competitor":
-            # Multi-competitor events require a batch — handled separately.
-            # Single events are passed through unchanged here;
-            # race decomposition happens in a batch call below.
-            normalized.append(event)
+            multi_competitor_events.append(event)
         else:
             # standard (or unknown): pass through unchanged
             normalized.append(event)
+
+    # Process multi-competitor events as a batch
+    if multi_competitor_events:
+        normalized.extend(_normalize_multi_competitor(multi_competitor_events))
 
     return normalized
 
@@ -133,6 +165,56 @@ def _normalize_binary(event: dict) -> list[dict]:
     return [{**event, "team_score_home": norm_h, "team_score_away": norm_a}]
 
 
+def _normalize_multi_competitor(events: list[dict]) -> list[dict]:
+    """Normalize multi-competitor events (F1, NASCAR, cycling).
+
+    Two modes depending on the data shape:
+    1. Events with finish_position: group by race event_id, decompose into
+       pairwise matchups via decompose_race_events().
+    2. Events in home/away format (from API head-to-head pairings): normalize
+       like binary (winner/loser with 1.0/0.0 scores).
+    """
+    # Check if any events have finish_position data (race result format)
+    race_format = [e for e in events if e.get("finish_position") is not None]
+    pairwise_format = [e for e in events if e.get("finish_position") is None]
+
+    result: list[dict] = []
+
+    # Process race-format events: group by base event_id and decompose
+    if race_format:
+        grouped: dict[str, list[dict]] = defaultdict(list)
+        for event in race_format:
+            grouped[event["event_id"]].append(event)
+
+        for event_id, group in grouped.items():
+            if len(group) < 2:
+                logger.warning(
+                    "Multi-competitor event %s has only %d result(s); skipping decomposition.",
+                    event_id, len(group),
+                )
+                continue
+            sport = group[0].get("league_sport", "")
+            points_map = _get_points_map(sport)
+            pairwise = decompose_race_events(group, points_map)
+            result.extend(pairwise)
+
+        logger.info(
+            "Decomposed %d race results into %d pairwise events.",
+            len(race_format), len(result),
+        )
+
+    # Process home/away format events: normalize like binary
+    if pairwise_format:
+        for event in pairwise_format:
+            result.extend(_normalize_binary(event))
+        logger.info(
+            "Normalized %d multi-competitor events as binary (home/away format).",
+            len(pairwise_format),
+        )
+
+    return result
+
+
 def decompose_race_events(
     race_results: list[dict],
     points_map: dict[int, float],
@@ -159,7 +241,7 @@ def decompose_race_events(
         return pairwise
 
     # Sort by finish position ascending so race_results[i] always beats race_results[j]
-    race_results = sorted(race_results, key=lambda r: int(r.get("finish_position", 99)))
+    race_results = sorted(race_results, key=lambda r: _safe_int(r.get("finish_position"), 99))
 
     base = race_results[0]  # Use first result for shared metadata
     n = len(race_results)
@@ -172,8 +254,8 @@ def decompose_race_events(
             pos1 = r1.get("finish_position", 99)
             pos2 = r2.get("finish_position", 99)
 
-            pts1 = points_map.get(int(pos1), 0.0)
-            pts2 = points_map.get(int(pos2), 0.0)
+            pts1 = points_map.get(_safe_int(pos1, 99), 0.0)
+            pts2 = points_map.get(_safe_int(pos2, 99), 0.0)
 
             pairwise.append({
                 "event_id": f"{base['event_id']}-{r1['uid']}-{r2['uid']}",

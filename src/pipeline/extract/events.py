@@ -127,7 +127,7 @@ def _parse_events(
         if not home_id or not away_id:
             continue
 
-        parsed.append({
+        record = {
             "event_id": event_id,
             "event_date": sanitize_date(item.get("dateEvent") or "1970-01-01"),
             "event_time": sanitize_time(item.get("strTime") or ""),
@@ -142,7 +142,15 @@ def _parse_events(
             "event_status": item.get("strStatus") or "",
             "event_video": item.get("strVideo") or "",
             "updated_at": now,
-        })
+        }
+        # Capture finish position if present (multi-competitor sports)
+        result_val = item.get("intResult")
+        if result_val is not None and result_val != "":
+            try:
+                record["finish_position"] = int(result_val)
+            except (ValueError, TypeError):
+                pass
+        parsed.append(record)
 
     return parsed
 
@@ -202,7 +210,11 @@ def fetch_events_incremental(
     for row in season_last5:
         league_id = row["league_id"]
         season = row["league_season"]
-        rank = int(row["season_rank"])
+        try:
+            rank = int(row["season_rank"])
+        except (ValueError, TypeError):
+            logger.warning("Invalid season_rank for league %s season %s; skipping.", league_id, season)
+            continue
 
         if str(league_id) not in whitelisted_set:
             continue

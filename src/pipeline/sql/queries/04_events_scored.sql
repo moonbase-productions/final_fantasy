@@ -18,7 +18,7 @@ CREATE TABLE derived.events_scored AS
           END                                               AS event_result
         , ROW_NUMBER() OVER (
             PARTITION BY e.league_id
-            ORDER BY e.event_date ASC
+            ORDER BY e.event_date ASC, e.event_id ASC
           )                                                 AS game_order
     FROM api.events AS e
     INNER JOIN derived.leagues_current AS lc

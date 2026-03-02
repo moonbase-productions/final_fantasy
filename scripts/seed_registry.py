@@ -216,7 +216,7 @@ def main() -> None:
         league_sport= league.get("strSport") or ""
 
         records.append({
-            "league_id":     int(league_id),
+            "league_id":     str(league_id),
             "league_name":   league_name,
             "league_sport":  league_sport,
             "sport_type":    sport_type,
