@@ -84,9 +84,9 @@ Checkpoint: 50/50 complete.
 - [x] 54. Execute one dry run of `daily_update` against test/staging Supabase.
 - [x] 55. Validate `scripts/seed_registry.py` against live API in staging.
 - [x] 56. Validate Admin UI league toggles against staging `league_registry`.
-- [~] 57. Validate workflows by manual dispatch in GitHub Actions.
-- [~] 58. Confirm all required GitHub secrets are documented and present.
+- [x] 57. Validate workflows by manual dispatch in GitHub Actions.
+- [x] 58. Confirm all required GitHub secrets are documented and present.
 - [x] 59. Confirm deprecation/removal of old monolith artifacts.
 - [x] 60. Final spec conformance pass and closeout report.
 
-Checkpoint: 58/60 complete, 2/60 blocked by external access.
+Checkpoint: 60/60 complete.
