@@ -80,17 +80,31 @@ def load_all_api_leagues() -> pd.DataFrame:
 
 @st.cache_data(ttl=30)
 def load_event_counts() -> pd.DataFrame:
-    """Event counts per active league per season (last 5)."""
-    rows = _paginated_select("api", "events", "league_id,league_season")
+    """Event counts (total + completed) per league per season."""
+    rows = _paginated_select(
+        "api", "events",
+        "league_id,league_season,event_date,event_status,team_score_home,team_score_away",
+    )
     if not rows:
         return pd.DataFrame()
     df = pd.DataFrame(rows)
-    return (
-        df.groupby(["league_id", "league_season"])
-        .size()
-        .reset_index(name="event_count")
-        .sort_values(["league_id", "league_season"], ascending=[True, False])
+    df["event_date"] = pd.to_datetime(df["event_date"], errors="coerce")
+    today = pd.Timestamp.today().normalize()
+    completed_statuses = {"Match Finished", "FT", "AOT"}
+    df["is_completed"] = (
+        df["event_status"].isin(completed_statuses)
+        | (
+            (df["event_date"] < today)
+            & df["team_score_home"].notna()
+            & df["team_score_away"].notna()
+        )
     )
+    grouped = df.groupby(["league_id", "league_season"]).agg(
+        event_count=("league_id", "size"),
+        completed_count=("is_completed", "sum"),
+    ).reset_index()
+    grouped["completed_count"] = grouped["completed_count"].astype(int)
+    return grouped.sort_values(["league_id", "league_season"], ascending=[True, False])
 
 
 @st.cache_data(ttl=30)
@@ -593,8 +607,9 @@ def page_pipeline_status() -> None:
 
             if not league_events.empty:
                 st.dataframe(
-                    league_events[["league_season", "event_count"]].rename(
-                        columns={"league_season": "Season", "event_count": "Events"}
+                    league_events[["league_season", "event_count", "completed_count"]].rename(
+                        columns={"league_season": "Season", "event_count": "Events",
+                                 "completed_count": "Completed"}
                     ),
                     hide_index=True,
                     use_container_width=True,
@@ -836,8 +851,9 @@ def page_league_health() -> None:
             if not league_season_events.empty:
                 st.caption("Events by Season (last 5)")
                 st.dataframe(
-                    league_season_events[["league_season", "event_count"]].rename(
-                        columns={"league_season": "Season", "event_count": "Events"}
+                    league_season_events[["league_season", "event_count", "completed_count"]].rename(
+                        columns={"league_season": "Season", "event_count": "Events",
+                                 "completed_count": "Completed"}
                     ),
                     hide_index=True,
                     use_container_width=True,
