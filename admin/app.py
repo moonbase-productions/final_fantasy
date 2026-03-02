@@ -1,9 +1,11 @@
 """Pipeline Admin UI.
 
-Three pages:
-  1. League Manager  — toggle is_whitelisted / is_active per league
-  2. Pipeline Status — last fetch times, event counts, run health
-  3. Elo & Tiers     — Elo distribution, tier breakdown, top/bottom teams
+Five pages:
+  1. League Manager   — toggle is_whitelisted / is_active per league
+  2. League Discovery — browse all API leagues, add to registry
+  3. Pipeline Status  — last fetch times, event counts, run health
+  4. Elo & Tiers      — Elo distribution, tier breakdown, top/bottom teams
+  5. League Health    — per-league health cards with Elo, tiers, events, seasons
 
 Run: streamlit run admin/app.py
 Requires the same .env file as the pipeline (SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY).
@@ -64,6 +66,19 @@ def load_registry() -> pd.DataFrame:
 
 
 @st.cache_data(ttl=30)
+def load_all_api_leagues() -> pd.DataFrame:
+    """Load all leagues from api.leagues (full API catalog)."""
+    client = get_client()
+    rows = (
+        client.schema("api").table("leagues")
+        .select("league_id,league_name,league_sport,league_name_alternate")
+        .execute()
+        .data
+    )
+    return pd.DataFrame(rows) if rows else pd.DataFrame()
+
+
+@st.cache_data(ttl=30)
 def load_event_counts() -> pd.DataFrame:
     """Event counts per active league per season (last 5)."""
     client = get_client()
@@ -121,10 +136,90 @@ def load_elo_data() -> pd.DataFrame:
 
 @st.cache_data(ttl=30)
 def load_league_names() -> dict[str, str]:
-    """Map league_id → league_name from api.leagues."""
+    """Map league_id -> league_name from api.leagues."""
     client = get_client()
     rows = client.schema("api").table("leagues").select("league_id,league_name").execute().data
     return {str(r["league_id"]): r["league_name"] for r in rows}
+
+
+@st.cache_data(ttl=30)
+def load_season_counts() -> pd.DataFrame:
+    """Count distinct seasons per league from api.seasons."""
+    rows = _paginated_select("api", "seasons", "league_id,league_season")
+    if not rows:
+        return pd.DataFrame(columns=["league_id", "season_count"])
+    df = pd.DataFrame(rows)
+    return (
+        df.groupby("league_id")["league_season"]
+        .nunique()
+        .reset_index()
+        .rename(columns={"league_season": "season_count"})
+    )
+
+
+@st.cache_data(ttl=30)
+def load_event_boundaries() -> pd.DataFrame:
+    """Last completed event date and next scheduled event date per league."""
+    rows = _paginated_select(
+        "api", "events",
+        "league_id,event_date,event_status,team_score_home,team_score_away",
+    )
+    if not rows:
+        return pd.DataFrame(columns=["league_id", "last_completed_date", "next_scheduled_date"])
+    df = pd.DataFrame(rows)
+    df["event_date"] = pd.to_datetime(df["event_date"], errors="coerce")
+
+    today = pd.Timestamp.today().normalize()
+    completed_statuses = {"Match Finished", "FT", "AOT"}
+
+    # Finished: explicit status OR past date with scores present
+    is_finished = (
+        df["event_status"].isin(completed_statuses)
+        | (
+            (df["event_date"] < today)
+            & df["team_score_home"].notna()
+            & df["team_score_away"].notna()
+        )
+    )
+    completed = df[is_finished]
+    last_completed = (
+        completed.groupby("league_id")["event_date"]
+        .max()
+        .reset_index()
+        .rename(columns={"event_date": "last_completed_date"})
+    )
+
+    future = df[(df["event_date"] >= today) & ~is_finished]
+    next_scheduled = (
+        future.groupby("league_id")["event_date"]
+        .min()
+        .reset_index()
+        .rename(columns={"event_date": "next_scheduled_date"})
+    )
+
+    return last_completed.merge(next_scheduled, on="league_id", how="outer")
+
+
+def _paginated_select(
+    schema: str, table: str, columns: str, page_size: int = 1000,
+) -> list[dict]:
+    """Fetch all rows from a schema.table, paginating past Supabase default limit."""
+    client = get_client()
+    rows: list[dict] = []
+    offset = 0
+    while True:
+        batch = (
+            client.schema(schema).table(table)
+            .select(columns)
+            .range(offset, offset + page_size - 1)
+            .execute()
+            .data
+        )
+        rows.extend(batch)
+        if len(batch) < page_size:
+            break
+        offset += page_size
+    return rows
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -139,15 +234,25 @@ def _update_registry(league_id: int, field: str, value: bool) -> None:
     load_registry.clear()
 
 
+def _safe_bool(val: object) -> bool:
+    """Convert a pandas value to bool, treating NaN/None as False."""
+    try:
+        if pd.isna(val):
+            return False
+    except (ValueError, TypeError):
+        pass
+    return bool(val)
+
+
 def _validate_toggle(df_row: pd.Series, field: str, new_value: bool) -> str | None:
     """Return an error message if the toggle would violate a constraint, else None."""
     if field == "is_active" and new_value:
-        if not df_row["is_whitelisted"]:
+        if not _safe_bool(df_row["is_whitelisted"]):
             return "Cannot activate: league must be whitelisted first."
-        if not df_row["sport_type"]:
+        if pd.isna(df_row["sport_type"]) or not df_row["sport_type"]:
             return "Cannot activate: sport_type must be set first."
     if field == "is_whitelisted" and not new_value:
-        if df_row["is_active"]:
+        if _safe_bool(df_row["is_active"]):
             return "Cannot un-whitelist an active league. Deactivate first."
     return None
 
@@ -212,18 +317,19 @@ def page_league_manager() -> None:
 
     for _, row in view.iterrows():
         cols = st.columns([3, 2, 2, 1, 1, 1, 2])
-        display = row["display_name"] or row["league_name"]
+        display = row["display_name"] if pd.notna(row["display_name"]) else row["league_name"]
         cols[0].write(display)
-        cols[1].write(row["league_sport"] or "—")
-        cols[2].write(row["sport_type"] or "⚠️ not set")
-        cols[3].write(int(row["team_count"]) if row["team_count"] else "—")
+        cols[1].write(row["league_sport"] if pd.notna(row.get("league_sport")) else "—")
+        cols[2].write(row["sport_type"] if pd.notna(row.get("sport_type")) else "⚠️ not set")
+        cols[3].write(int(row["team_count"]) if pd.notna(row.get("team_count")) else "—")
 
         # Whitelisted toggle
+        wl_current = _safe_bool(row["is_whitelisted"])
         wl_key = f"wl_{row['league_id']}"
         new_wl = cols[4].checkbox(
-            "", value=bool(row["is_whitelisted"]), key=wl_key, label_visibility="collapsed"
+            "", value=wl_current, key=wl_key, label_visibility="collapsed"
         )
-        if new_wl != row["is_whitelisted"]:
+        if new_wl != wl_current:
             err = _validate_toggle(row, "is_whitelisted", new_wl)
             if err:
                 st.error(f"{display}: {err}")
@@ -232,11 +338,12 @@ def page_league_manager() -> None:
                 st.rerun()
 
         # Active toggle
+        ac_current = _safe_bool(row["is_active"])
         ac_key = f"ac_{row['league_id']}"
         new_ac = cols[5].checkbox(
-            "", value=bool(row["is_active"]), key=ac_key, label_visibility="collapsed"
+            "", value=ac_current, key=ac_key, label_visibility="collapsed"
         )
-        if new_ac != row["is_active"]:
+        if new_ac != ac_current:
             err = _validate_toggle(row, "is_active", new_ac)
             if err:
                 st.error(f"{display}: {err}")
@@ -253,7 +360,181 @@ def page_league_manager() -> None:
             cols[6].write("never")
 
 
-# ── Page 2: Pipeline Status ───────────────────────────────────────────────────
+# ── Page 2: League Discovery ─────────────────────────────────────────────────
+
+def page_league_discovery() -> None:
+    st.title("🔍 League Discovery")
+    st.caption(
+        "Browse all leagues available in TheSportsDB. "
+        "Add any league to the registry to whitelist it for pipeline processing. "
+        "The league catalog is refreshed during each full pipeline run."
+    )
+
+    api_leagues = load_all_api_leagues()
+    if api_leagues.empty:
+        st.warning(
+            "No leagues found in api.leagues. "
+            "Run a full pipeline refresh first to populate the league catalog."
+        )
+        return
+
+    registry = load_registry()
+    registered_ids = set(registry["league_id"].astype(str).tolist()) if not registry.empty else set()
+
+    # Mark registration status
+    api_leagues["league_id_str"] = api_leagues["league_id"].astype(str)
+    api_leagues["status"] = api_leagues["league_id_str"].apply(
+        lambda lid: _get_registration_status(lid, registry, registered_ids)
+    )
+
+    # ── Filters ──────────────────────────────────────────────────────────────
+    col_sport, col_search, col_status = st.columns([2, 3, 2])
+    with col_sport:
+        sports = ["All"] + sorted(api_leagues["league_sport"].dropna().unique().tolist())
+        sport_filter = st.selectbox("Filter by sport", sports, key="disc_sport")
+    with col_search:
+        search = st.text_input("Search leagues", placeholder="e.g. Serie A", key="disc_search")
+    with col_status:
+        status_filter = st.selectbox(
+            "Registration",
+            ["All", "Not registered", "Whitelisted", "Active"],
+            key="disc_status",
+        )
+
+    view = api_leagues.copy()
+    if sport_filter != "All":
+        view = view[view["league_sport"] == sport_filter]
+    if search:
+        mask = (
+            view["league_name"].str.contains(search, case=False, na=False)
+            | view["league_name_alternate"].str.contains(search, case=False, na=False)
+        )
+        view = view[mask]
+    if status_filter == "Not registered":
+        view = view[view["status"] == "Not registered"]
+    elif status_filter == "Whitelisted":
+        view = view[view["status"] == "Whitelisted"]
+    elif status_filter == "Active":
+        view = view[view["status"] == "Active"]
+
+    view = view.sort_values(["league_sport", "league_name"])
+
+    st.markdown(
+        f"**{len(view)}** leagues shown "
+        f"({len(api_leagues)} total in catalog, "
+        f"{len(api_leagues) - len(registered_ids)} not yet registered)"
+    )
+
+    st.divider()
+
+    # Column headers
+    hdr = st.columns([3, 2, 2, 2])
+    hdr[0].markdown("**League**")
+    hdr[1].markdown("**Sport**")
+    hdr[2].markdown("**Status**")
+    hdr[3].markdown("**Action**")
+    st.divider()
+
+    for _, row in view.iterrows():
+        cols = st.columns([3, 2, 2, 2])
+        name = row["league_name"]
+        alt = row.get("league_name_alternate") or ""
+        cols[0].write(f"{name}" + (f" ({alt})" if alt and alt != name else ""))
+        cols[1].write(row["league_sport"] or "—")
+
+        status = row["status"]
+        if status == "Active":
+            cols[2].markdown("**Active** ✅")
+        elif status == "Whitelisted":
+            cols[2].write("Whitelisted")
+        else:
+            cols[2].write("Not registered")
+
+        # Action: add to registry
+        if status == "Not registered":
+            btn_key = f"add_{row['league_id']}"
+            if cols[3].button("Add to registry", key=btn_key):
+                st.session_state[f"adding_{row['league_id']}"] = True
+
+            # Show sport_type selector when "Add" is clicked
+            if st.session_state.get(f"adding_{row['league_id']}"):
+                _show_add_form(row)
+        else:
+            cols[3].write("—")
+
+
+def _get_registration_status(
+    league_id: str,
+    registry: pd.DataFrame,
+    registered_ids: set[str],
+) -> str:
+    """Determine registration status for a league."""
+    if league_id not in registered_ids:
+        return "Not registered"
+    if registry.empty:
+        return "Not registered"
+    match = registry[registry["league_id"].astype(str) == league_id]
+    if match.empty:
+        return "Not registered"
+    row = match.iloc[0]
+    if _safe_bool(row.get("is_active")):
+        return "Active"
+    if _safe_bool(row.get("is_whitelisted")):
+        return "Whitelisted"
+    return "Not registered"
+
+
+def _show_add_form(row: pd.Series) -> None:
+    """Display inline form to add a league to the registry."""
+    with st.container():
+        st.markdown(f"**Adding: {row['league_name']}** (ID: {row['league_id']})")
+        sport_type = st.selectbox(
+            "Sport type",
+            ["standard", "binary", "multi_competitor"],
+            key=f"st_{row['league_id']}",
+            help="standard = home/away scores, binary = winner/loser only, "
+                 "multi_competitor = races with multiple competitors",
+        )
+        c1, c2 = st.columns(2)
+        if c1.button("Confirm", key=f"confirm_{row['league_id']}"):
+            _add_to_registry(
+                league_id=str(row["league_id"]),
+                league_name=row["league_name"],
+                league_sport=row["league_sport"] or "",
+                sport_type=sport_type,
+            )
+            del st.session_state[f"adding_{row['league_id']}"]
+            load_registry.clear()
+            load_all_api_leagues.clear()
+            st.rerun()
+        if c2.button("Cancel", key=f"cancel_{row['league_id']}"):
+            del st.session_state[f"adding_{row['league_id']}"]
+            st.rerun()
+
+
+def _add_to_registry(
+    league_id: str,
+    league_name: str,
+    league_sport: str,
+    sport_type: str,
+) -> None:
+    """Insert a new league into admin.league_registry."""
+    client = get_client()
+    client.schema("admin").table("league_registry").upsert(
+        {
+            "league_id": league_id,
+            "league_name": league_name,
+            "league_sport": league_sport,
+            "sport_type": sport_type,
+            "is_whitelisted": True,
+            "is_active": False,
+            "notes": "Added via League Discovery",
+        },
+        on_conflict="league_id",
+    ).execute()
+
+
+# ── Page 3: Pipeline Status ───────────────────────────────────────────────────
 
 def page_pipeline_status() -> None:
     st.title("📊 Pipeline Status")
@@ -299,7 +580,7 @@ def page_pipeline_status() -> None:
                 c2.metric("Stats updated", "Never")
 
             # Team count
-            c3.metric("Teams", int(row["team_count"]) if row["team_count"] else "—")
+            c3.metric("Teams", int(row["team_count"]) if pd.notna(row.get("team_count")) else "—")
 
             # Event counts by season
             league_events = event_cts[
@@ -332,7 +613,7 @@ def page_pipeline_status() -> None:
         )
 
 
-# ── Page 3: Elo & Tier Overview ───────────────────────────────────────────────
+# ── Page 4: Elo & Tier Overview ───────────────────────────────────────────────
 
 def page_elo_tiers() -> None:
     st.title("📈 Elo & Tier Overview")
@@ -412,12 +693,164 @@ def page_elo_tiers() -> None:
         st.dataframe(bot, hide_index=True, use_container_width=True)
 
 
+# ── Page 5: League Health ────────────────────────────────────────────────────
+
+def page_league_health() -> None:
+    st.title("🏥 League Health")
+    st.caption("Per-league health cards for all active leagues.")
+
+    registry       = load_registry()
+    event_cts      = load_event_counts()
+    stats_summ     = load_py_stats_summary()
+    elo_df         = load_elo_data()
+    season_counts  = load_season_counts()
+    event_bounds   = load_event_boundaries()
+
+    active = registry[registry["is_active"] == True].copy()
+    if active.empty:
+        st.info("No active leagues. Activate leagues in League Manager first.")
+        return
+
+    # Sport filter
+    sports = ["All"] + sorted(active["league_sport"].dropna().unique().tolist())
+    sport_filter = st.selectbox("Filter by sport", sports, key="health_sport")
+    if sport_filter != "All":
+        active = active[active["league_sport"] == sport_filter]
+
+    # Merge supplementary data
+    active = active.merge(stats_summ, on="league_id", how="left")
+    active = active.merge(season_counts, on="league_id", how="left")
+    active = active.merge(event_bounds, on="league_id", how="left")
+
+    st.markdown(f"**{len(active)} active league(s)** shown")
+    st.divider()
+
+    now = datetime.now(timezone.utc)
+    now_naive = pd.Timestamp.now()  # tz-naive, for comparing with event dates
+    tier_order = ["MOL", "SS", "S", "A", "B", "C", "D", "E", "F", "FF", "DIE"]
+
+    for _, row in active.iterrows():
+        lid = str(row["league_id"])
+        name = row["display_name"] if pd.notna(row.get("display_name")) else row["league_name"]
+
+        with st.container(border=True):
+            st.subheader(f"{name}  ({row['league_sport']} / {row.get('sport_type') or '?'})")
+
+            # ── Metrics Row 1 ────────────────────────────────────────────
+            m1, m2, m3 = st.columns(3)
+
+            if pd.notna(row.get("last_fetched_at")):
+                ago = now - row["last_fetched_at"]
+                m1.metric("Last Refresh", f"{int(ago.total_seconds() // 3600)}h ago")
+            else:
+                m1.metric("Last Refresh", "Never")
+
+            if pd.notna(row.get("stats_updated_at")):
+                ago2 = now - row["stats_updated_at"]
+                m2.metric("Stats Updated", f"{int(ago2.total_seconds() // 3600)}h ago")
+            else:
+                m2.metric("Stats Updated", "Never")
+
+            tc = int(row["team_count"]) if pd.notna(row.get("team_count")) else 0
+            m3.metric("Teams", tc if tc > 0 else "—")
+
+            # ── Metrics Row 2 ────────────────────────────────────────────
+            m4, m5, m6, m7 = st.columns(4)
+
+            sc = int(row["season_count"]) if pd.notna(row.get("season_count")) else 0
+            m4.metric("Seasons in DB", sc if sc > 0 else "—")
+
+            league_events = event_cts[event_cts["league_id"].astype(str) == lid]
+            total_events = int(league_events["event_count"].sum()) if not league_events.empty else 0
+            m5.metric("Total Events", total_events if total_events > 0 else "—")
+
+            if pd.notna(row.get("last_completed_date")):
+                lcd = row["last_completed_date"]
+                days_ago = (now_naive - lcd).days
+                m6.metric("Last Completed", lcd.strftime("%Y-%m-%d"), delta=f"{days_ago}d ago", delta_color="off")
+            else:
+                m6.metric("Last Completed", "None")
+
+            if pd.notna(row.get("next_scheduled_date")):
+                nsd = row["next_scheduled_date"]
+                days_until = (nsd - now_naive).days
+                m7.metric("Next Scheduled", nsd.strftime("%Y-%m-%d"), delta=f"in {days_until}d", delta_color="off")
+            else:
+                m7.metric("Next Scheduled", "None")
+
+            # ── Visualizations Row ───────────────────────────────────────
+            league_elo = elo_df[elo_df["league_id"].astype(str) == lid].copy()
+            viz1, viz2 = st.columns(2)
+
+            with viz1:
+                st.caption("Elo Distribution")
+                if not league_elo.empty:
+                    league_elo["current_elo"] = pd.to_numeric(league_elo["current_elo"], errors="coerce")
+                    elo_vals = league_elo["current_elo"].dropna()
+                    if not elo_vals.empty:
+                        lo = int(elo_vals.min() // 50) * 50
+                        hi = int(elo_vals.max() // 50) * 50 + 100
+                        bins = list(range(lo, hi, 50))
+                        if len(bins) < 2:
+                            bins = [lo, lo + 50]
+                        cuts = pd.cut(elo_vals, bins=bins)
+                        hist = cuts.value_counts(sort=False)
+                        hist_df = pd.DataFrame({
+                            "elo": [iv.left for iv in hist.index],
+                            "count": hist.values,
+                        }).sort_values("elo")
+                        st.bar_chart(hist_df.set_index("elo"), height=200)
+                    else:
+                        st.write("No Elo data.")
+                else:
+                    st.write("No Elo data.")
+
+            with viz2:
+                st.caption("Tier Breakdown")
+                if not league_elo.empty and "tier" in league_elo.columns:
+                    tier_counts = (
+                        league_elo["tier"]
+                        .value_counts()
+                        .reindex(tier_order, fill_value=0)
+                        .reset_index()
+                    )
+                    tier_counts.columns = ["Tier", "Count"]
+                    tier_counts = tier_counts[tier_counts["Count"] > 0]
+                    if not tier_counts.empty:
+                        st.dataframe(tier_counts, hide_index=True, use_container_width=True)
+                    else:
+                        st.write("No tier data.")
+                else:
+                    st.write("No tier data.")
+
+            # ── Events by Season ─────────────────────────────────────────
+            league_season_events = (
+                league_events
+                .sort_values("league_season", ascending=False)
+                .head(5)
+            )
+            if not league_season_events.empty:
+                st.caption("Events by Season (last 5)")
+                st.dataframe(
+                    league_season_events[["league_season", "event_count"]].rename(
+                        columns={"league_season": "Season", "event_count": "Events"}
+                    ),
+                    hide_index=True,
+                    use_container_width=True,
+                )
+            else:
+                st.caption("Events by Season")
+                st.write("No events found.")
+
+
 # ── Navigation ────────────────────────────────────────────────────────────────
 
 PAGES = {
-    "⚽ League Manager":   page_league_manager,
-    "📊 Pipeline Status":  page_pipeline_status,
-    "📈 Elo & Tiers":      page_elo_tiers,
+    "⚽ League Manager":    page_league_manager,
+    "🔍 League Discovery":  page_league_discovery,
+    "📊 Pipeline Status":   page_pipeline_status,
+    "📈 Elo & Tiers":       page_elo_tiers,
+    "🏥 League Health":     page_league_health,
 }
 
 with st.sidebar:
