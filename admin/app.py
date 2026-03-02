@@ -81,13 +81,7 @@ def load_all_api_leagues() -> pd.DataFrame:
 @st.cache_data(ttl=30)
 def load_event_counts() -> pd.DataFrame:
     """Event counts per active league per season (last 5)."""
-    client = get_client()
-    rows = (
-        client.schema("api").table("events")
-        .select("league_id,league_season")
-        .execute()
-        .data
-    )
+    rows = _paginated_select("api", "events", "league_id,league_season")
     if not rows:
         return pd.DataFrame()
     df = pd.DataFrame(rows)
