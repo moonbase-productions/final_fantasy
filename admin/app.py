@@ -123,15 +123,25 @@ def load_py_stats_summary() -> pd.DataFrame:
 
 @st.cache_data(ttl=30)
 def load_elo_data() -> pd.DataFrame:
-    """Current Elo for all teams from derived.current_elo."""
+    """Current Elo for all teams from derived.current_elo, with team names."""
     client = get_client()
-    rows = (
+    elo_rows = (
         client.schema("derived").table("current_elo")
         .select("uid,league_id,current_elo,tier")
         .execute()
         .data
     )
-    return pd.DataFrame(rows) if rows else pd.DataFrame()
+    if not elo_rows:
+        return pd.DataFrame()
+    df = pd.DataFrame(elo_rows)
+    # Join asset names from api.assets
+    asset_rows = _paginated_select("api", "assets", "uid,team_name")
+    if asset_rows:
+        assets = pd.DataFrame(asset_rows).rename(columns={"team_name": "asset_name"})
+        df = df.merge(assets, on="uid", how="left")
+    else:
+        df["asset_name"] = None
+    return df
 
 
 @st.cache_data(ttl=30)
@@ -674,13 +684,13 @@ def page_elo_tiers() -> None:
     view = view.sort_values("current_elo", ascending=False).reset_index(drop=True)
     view.index += 1
 
-    cols = ["uid", "league_name", "current_elo", "tier"]
+    cols = ["asset_name", "league_name", "current_elo", "tier"]
     top = view.head(int(n))[cols].rename(
-        columns={"uid": "UID", "league_name": "League",
+        columns={"asset_name": "Team", "league_name": "League",
                  "current_elo": "Elo", "tier": "Tier"}
     )
     bot = view.tail(int(n))[cols].rename(
-        columns={"uid": "UID", "league_name": "League",
+        columns={"asset_name": "Team", "league_name": "League",
                  "current_elo": "Elo", "tier": "Tier"}
     )
 
