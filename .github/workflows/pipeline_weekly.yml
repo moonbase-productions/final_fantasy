@@ -1,0 +1,40 @@
+# .github/workflows/pipeline_weekly.yml
+# Full pipeline refresh: all whitelisted leagues, all seasons, full stat recompute.
+# Runs every Sunday at 02:00 UTC. Also manually triggerable.
+
+name: Pipeline — Full Weekly Refresh
+
+on:
+  schedule:
+    - cron: "0 2 * * 0"    # Sunday 02:00 UTC
+  workflow_dispatch:         # manual trigger from GitHub UI
+
+jobs:
+  full-refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30      # abort if stuck; full run expected 10-25 min
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install pipeline package
+        run: pip install -e .
+
+      - name: Run full refresh
+        run: python -m pipeline.runners.full_refresh
+        env:
+          SPORTSDB_API_KEY:           ${{ secrets.SPORTSDB_API_KEY }}
+          SUPABASE_URL:               ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY:  ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          DB_HOST:                    ${{ secrets.DB_HOST }}
+          DB_PORT:                    ${{ secrets.DB_PORT }}
+          DB_NAME:                    ${{ secrets.DB_NAME }}
+          DB_USER:                    ${{ secrets.DB_USER }}
+          DB_PASSWORD:                ${{ secrets.DB_PASSWORD }}

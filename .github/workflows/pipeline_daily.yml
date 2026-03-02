@@ -1,0 +1,40 @@
+# .github/workflows/pipeline_daily.yml
+# Daily events update: active leagues, current season only.
+# Runs every 4 hours. Also manually triggerable.
+
+name: Pipeline — Daily Events Update
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"   # every 4 hours
+  workflow_dispatch:
+
+jobs:
+  daily-update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15      # abort if stuck; expected 2-5 min
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install pipeline package
+        run: pip install -e .
+
+      - name: Run daily update
+        run: python -m pipeline.runners.daily_update
+        env:
+          SPORTSDB_API_KEY:           ${{ secrets.SPORTSDB_API_KEY }}
+          SUPABASE_URL:               ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY:  ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          DB_HOST:                    ${{ secrets.DB_HOST }}
+          DB_PORT:                    ${{ secrets.DB_PORT }}
+          DB_NAME:                    ${{ secrets.DB_NAME }}
+          DB_USER:                    ${{ secrets.DB_USER }}
+          DB_PASSWORD:                ${{ secrets.DB_PASSWORD }}
