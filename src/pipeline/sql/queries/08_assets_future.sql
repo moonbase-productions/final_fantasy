@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.assets_future;
+DROP TABLE IF EXISTS derived.assets_future CASCADE;
 
 CREATE TABLE derived.assets_future AS
     WITH combined AS (

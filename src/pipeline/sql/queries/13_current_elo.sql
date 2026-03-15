@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.current_elo;
+DROP TABLE IF EXISTS derived.current_elo CASCADE;
 
 CREATE TABLE derived.current_elo AS
     SELECT

@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.wld;
+DROP TABLE IF EXISTS derived.wld CASCADE;
 
 CREATE TABLE derived.wld AS
     SELECT

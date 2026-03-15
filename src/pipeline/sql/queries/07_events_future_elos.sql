@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.team_stats_current;
+DROP TABLE IF EXISTS derived.team_stats_current CASCADE;
 
 CREATE TABLE derived.team_stats_current AS
     SELECT ts.*
@@ -11,7 +11,7 @@ CREATE TABLE derived.team_stats_current AS
 CREATE INDEX idx_team_stats_current
     ON derived.team_stats_current (uid);
 
-DROP TABLE IF EXISTS derived.team_stats_previous;
+DROP TABLE IF EXISTS derived.team_stats_previous CASCADE;
 
 CREATE TABLE derived.team_stats_previous AS
     SELECT ts.*
@@ -24,7 +24,7 @@ CREATE TABLE derived.team_stats_previous AS
 CREATE INDEX idx_team_stats_previous
     ON derived.team_stats_previous (uid);
 
-DROP TABLE IF EXISTS derived.events_future_elos;
+DROP TABLE IF EXISTS derived.events_future_elos CASCADE;
 
 CREATE TABLE derived.events_future_elos AS
     SELECT

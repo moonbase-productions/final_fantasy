@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.ref_elo;
+DROP TABLE IF EXISTS derived.ref_elo CASCADE;
 
 CREATE TABLE derived.ref_elo AS
     WITH ranked AS (

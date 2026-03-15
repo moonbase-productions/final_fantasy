@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.web_events;
+DROP TABLE IF EXISTS derived.web_events CASCADE;
 
 CREATE TABLE derived.web_events AS
     SELECT

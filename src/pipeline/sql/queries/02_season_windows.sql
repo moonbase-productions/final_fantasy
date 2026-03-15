@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.season_current;
+DROP TABLE IF EXISTS derived.season_current CASCADE;
 
 CREATE TABLE derived.season_current AS
     SELECT
@@ -18,7 +18,7 @@ CREATE TABLE derived.season_current AS
     ) AS ranked
     WHERE season_rank = 1;
 
-DROP TABLE IF EXISTS derived.season_past;
+DROP TABLE IF EXISTS derived.season_past CASCADE;
 
 CREATE TABLE derived.season_past AS
     SELECT
@@ -38,7 +38,7 @@ CREATE TABLE derived.season_past AS
     ) AS ranked
     WHERE season_rank = 2;
 
-DROP TABLE IF EXISTS derived.season_last5;
+DROP TABLE IF EXISTS derived.season_last5 CASCADE;
 
 CREATE TABLE derived.season_last5 AS
     SELECT

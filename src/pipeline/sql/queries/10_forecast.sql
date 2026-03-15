@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.forecast;
+DROP TABLE IF EXISTS derived.forecast CASCADE;
 
 CREATE TABLE derived.forecast AS
     WITH ranked AS (

@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.web_assets_info;
+DROP TABLE IF EXISTS derived.web_assets_info CASCADE;
 
 CREATE TABLE derived.web_assets_info AS
     SELECT aa.*

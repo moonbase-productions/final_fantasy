@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.assets_season_to_date;
+DROP TABLE IF EXISTS derived.assets_season_to_date CASCADE;
 
 CREATE TABLE derived.assets_season_to_date AS
     WITH events AS (

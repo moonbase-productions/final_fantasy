@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.asset_last_10;
+DROP TABLE IF EXISTS derived.asset_last_10 CASCADE;
 
 CREATE TABLE derived.asset_last_10 AS
     WITH last_10 AS (

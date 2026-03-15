@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.events_scored;
+DROP TABLE IF EXISTS derived.events_scored CASCADE;
 
 CREATE TABLE derived.events_scored AS
     SELECT

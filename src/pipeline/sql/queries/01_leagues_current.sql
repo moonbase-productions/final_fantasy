@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.leagues_current;
+DROP TABLE IF EXISTS derived.leagues_current CASCADE;
 
 CREATE TABLE derived.leagues_current AS
     SELECT

@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS derived.events_split;
+DROP TABLE IF EXISTS derived.events_split CASCADE;
 
 CREATE TABLE derived.events_split AS
     WITH cte AS (
