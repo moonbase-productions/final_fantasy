@@ -1,12 +1,14 @@
 # .github/workflows/pipeline_daily.yml
 # Daily events update: active leagues, current season only.
-# Runs every 4 hours. Also manually triggerable.
+# Schedule disabled — hourly full refresh already covers data freshness.
+# The only unique behavior here is auto-activation; re-enable the cron below
+# when auto-activation is turned back on (post-World-Cup). Manually triggerable.
 
 name: Pipeline — Daily Events Update
 
 on:
-  schedule:
-    - cron: "0 */4 * * *"   # every 4 hours
+  # schedule:
+  #   - cron: "0 */4 * * *"   # every 4 hours — disabled while auto-activation is off
   workflow_dispatch:
 
 jobs:
