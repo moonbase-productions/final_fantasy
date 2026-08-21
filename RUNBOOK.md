@@ -17,8 +17,18 @@
 
 - Full refresh:
   - `python -m pipeline.runners.full_refresh`
+  - Also fetches `api.league_details` automatically, but only for leagues
+    that don't have a row there yet (new leagues). Leagues that already
+    have details are skipped, so this stays cheap on repeat runs.
 - Daily update:
   - `python -m pipeline.runners.daily_update`
+- Force-refresh ALL league details (manual only — never run automatically):
+  - `python -m pipeline.runners.fetch_league_details`
+  - Re-fetches `api.league_details` for every league in `api.leagues`,
+    including ones that already have a row (e.g. to pick up a rename or
+    fix stale data). One API call per league, so this can take a long
+    time given the rate limit. Run on demand only; not part of full
+    refresh, daily update, or any scheduled workflow.
 - Seed registry:
   - `python scripts/seed_registry.py`
 - Admin app:

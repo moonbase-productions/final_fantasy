@@ -85,9 +85,28 @@ def main() -> None:
         all_leagues = fetch_all_leagues(client)
         batch_upsert(supabase, "api.leagues", all_leagues, "league_id")
 
-        logger.info("--- Extracting league details ---")
-        details = fetch_league_details(client, whitelisted_ids)
-        batch_upsert(supabase, "api.league_details", details, "league_id")
+        # League details: only fetch for leagues that don't have a row in
+        # api.league_details yet. This is a one-call-per-league operation
+        # across every league TheSportsDB knows about, so we deliberately
+        # avoid re-fetching leagues we already have details for on every
+        # run — only brand-new leagues incur the extra API calls.
+        all_league_ids = sorted({
+            str(item["league_id"]) for item in all_leagues if item.get("league_id")
+        })
+        existing_detail_ids = {
+            str(row["league_id"])
+            for row in paginate(supabase, "api.league_details")
+        }
+        missing_detail_ids = [
+            lid for lid in all_league_ids if lid not in existing_detail_ids
+        ]
+        logger.info(
+            "--- Extracting league details (%d new leagues, %d already have details) ---",
+            len(missing_detail_ids), len(existing_detail_ids),
+        )
+        if missing_detail_ids:
+            details = fetch_league_details(client, missing_detail_ids)
+            batch_upsert(supabase, "api.league_details", details, "league_id")
 
         logger.info("--- Extracting seasons ---")
         seasons = fetch_seasons(client, whitelisted_ids)
