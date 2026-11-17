@@ -1,0 +1,543 @@
+uid,league_id,team_name,team_short,team_logo,team_country,external_ref,created_at,updated_at
+9000-9011,9000,A&M-Corpus Christi,,https://ncaa-api.henrygd.me/logo/am-corpus-chris.svg,United States,am-corpus-chris,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9024,9000,AUM,,https://ncaa-api.henrygd.me/logo/aub-montgomery.svg,United States,aub-montgomery,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9000,9000,Abilene Christian,,https://ncaa-api.henrygd.me/logo/abilene-christian.svg,United States,abilene-christian,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9001,9000,Adelphi,,https://ncaa-api.henrygd.me/logo/adelphi.svg,United States,adelphi,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9002,9000,Air Force,,https://ncaa-api.henrygd.me/logo/air-force.svg,United States,air-force,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9003,9000,Akron,,https://ncaa-api.henrygd.me/logo/akron.svg,United States,akron,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9005,9000,Alabama,,https://ncaa-api.henrygd.me/logo/alabama.svg,United States,alabama,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9006,9000,Alabama A&M,,https://ncaa-api.henrygd.me/logo/alabama-am.svg,United States,alabama-am,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9007,9000,Alabama St.,,https://ncaa-api.henrygd.me/logo/alabama-st.svg,United States,alabama-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9009,9000,Alcorn,,https://ncaa-api.henrygd.me/logo/alcorn.svg,United States,alcorn,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9010,9000,Allen University,,https://ncaa-api.henrygd.me/logo/allen.svg,United States,allen,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9012,9000,American,,https://ncaa-api.henrygd.me/logo/american.svg,United States,american,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9013,9000,American Int'l,,https://ncaa-api.henrygd.me/logo/american-intl.svg,United States,american-intl,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9014,9000,App State,,https://ncaa-api.henrygd.me/logo/appalachian-st.svg,United States,appalachian-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9015,9000,Arizona,,https://ncaa-api.henrygd.me/logo/arizona.svg,United States,arizona,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9016,9000,Arizona St.,,https://ncaa-api.henrygd.me/logo/arizona-st.svg,United States,arizona-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9017,9000,Ark.-Pine Bluff,,https://ncaa-api.henrygd.me/logo/ark-pine-bluff.svg,United States,ark-pine-bluff,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9018,9000,Arkansas,,https://ncaa-api.henrygd.me/logo/arkansas.svg,United States,arkansas,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9019,9000,Arkansas St.,,https://ncaa-api.henrygd.me/logo/arkansas-st.svg,United States,arkansas-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9020,9000,Army West Point,,https://ncaa-api.henrygd.me/logo/army.svg,United States,army,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9021,9000,Asbury University,,https://ncaa-api.henrygd.me/logo/asbury.svg,United States,asbury,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9022,9000,Ashland University,,https://ncaa-api.henrygd.me/logo/ashland.svg,United States,ashland,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9023,9000,Assumption,,https://ncaa-api.henrygd.me/logo/assumption.svg,United States,assumption,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9025,9000,Auburn,,https://ncaa-api.henrygd.me/logo/auburn.svg,United States,auburn,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9026,9000,Augustana University (South Dakota),,https://ncaa-api.henrygd.me/logo/augustana-sd.svg,United States,augustana-sd,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9027,9000,Austin College,,https://ncaa-api.henrygd.me/logo/austin.svg,United States,austin,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9028,9000,Austin Peay,,https://ncaa-api.henrygd.me/logo/austin-peay.svg,United States,austin-peay,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9052,9000,BYU,,https://ncaa-api.henrygd.me/logo/byu.svg,United States,byu,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9030,9000,Ball St.,,https://ncaa-api.henrygd.me/logo/ball-st.svg,United States,ball-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9031,9000,Baylor,,https://ncaa-api.henrygd.me/logo/baylor.svg,United States,baylor,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9032,9000,Belhaven University,,https://ncaa-api.henrygd.me/logo/belhaven.svg,United States,belhaven,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9033,9000,Bellarmine,,https://ncaa-api.henrygd.me/logo/bellarmine.svg,United States,bellarmine,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9034,9000,Belmont,,https://ncaa-api.henrygd.me/logo/belmont.svg,United States,belmont,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9035,9000,Bentley,,https://ncaa-api.henrygd.me/logo/bentley.svg,United States,bentley,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9036,9000,Berry College,,https://ncaa-api.henrygd.me/logo/berry.svg,United States,berry,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9037,9000,Binghamton,,https://ncaa-api.henrygd.me/logo/binghamton.svg,United States,binghamton,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9038,9000,Bloomsburg,,https://ncaa-api.henrygd.me/logo/bloomsburg.svg,United States,bloomsburg,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9039,9000,Bluefield St.,,https://ncaa-api.henrygd.me/logo/bluefield-st.svg,United States,bluefield-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9040,9000,Bob Jones,,https://ncaa-api.henrygd.me/logo/bob-jones.svg,United States,bob-jones,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9041,9000,Boise St.,,https://ncaa-api.henrygd.me/logo/boise-st.svg,United States,boise-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9042,9000,Boston College,,https://ncaa-api.henrygd.me/logo/boston-college.svg,United States,boston-college,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9043,9000,Boston U.,,https://ncaa-api.henrygd.me/logo/boston-u.svg,United States,boston-u,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9044,9000,Bowling Green,,https://ncaa-api.henrygd.me/logo/bowling-green.svg,United States,bowling-green,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9045,9000,Brandeis,,https://ncaa-api.henrygd.me/logo/brandeis.svg,United States,brandeis,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9046,9000,Brescia,,https://ncaa-api.henrygd.me/logo/brescia.svg,United States,brescia,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9047,9000,Brown,,https://ncaa-api.henrygd.me/logo/brown.svg,United States,brown,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9048,9000,Bryant,,https://ncaa-api.henrygd.me/logo/bryant.svg,United States,bryant,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9049,9000,Bucknell,,https://ncaa-api.henrygd.me/logo/bucknell.svg,United States,bucknell,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9050,9000,Buffalo,,https://ncaa-api.henrygd.me/logo/buffalo.svg,United States,buffalo,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9314,9000,Bushnell,,https://ncaa-api.henrygd.me/logo/northwest-chrst.svg,United States,northwest-chrst,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9051,9000,Butler,,https://ncaa-api.henrygd.me/logo/butler.svg,United States,butler,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9029,9000,CSU Bakersfield,,https://ncaa-api.henrygd.me/logo/bakersfield.svg,United States,bakersfield,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9055,9000,CSUN,,https://ncaa-api.henrygd.me/logo/cal-st-northridge.svg,United States,cal-st-northridge,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9053,9000,Cal Poly,,https://ncaa-api.henrygd.me/logo/cal-poly.svg,United States,cal-poly,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9054,9000,Cal St. Fullerton,,https://ncaa-api.henrygd.me/logo/cal-st-fullerton.svg,United States,cal-st-fullerton,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9056,9000,Caldwell,,https://ncaa-api.henrygd.me/logo/caldwell.svg,United States,caldwell,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9057,9000,California,,https://ncaa-api.henrygd.me/logo/california.svg,United States,california,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9059,9000,California (PA),,https://ncaa-api.henrygd.me/logo/california-pa.svg,United States,california-pa,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9058,9000,California Baptist,,https://ncaa-api.henrygd.me/logo/california-baptist.svg,United States,california-baptist,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9060,9000,Campbell,,https://ncaa-api.henrygd.me/logo/campbell.svg,United States,campbell,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9061,9000,Canisius,,https://ncaa-api.henrygd.me/logo/canisius.svg,United States,canisius,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9062,9000,Central Ark.,,https://ncaa-api.henrygd.me/logo/central-ark.svg,United States,central-ark,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9063,9000,Central Baptist,,https://ncaa-api.henrygd.me/logo/central-baptist.svg,United States,central-baptist,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9064,9000,Central Conn. St.,,https://ncaa-api.henrygd.me/logo/central-conn-st.svg,United States,central-conn-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9065,9000,Central Mich.,,https://ncaa-api.henrygd.me/logo/central-mich.svg,United States,central-mich,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9066,9000,Central Wash.,,https://ncaa-api.henrygd.me/logo/central-wash.svg,United States,central-wash,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9067,9000,Charleston So.,,https://ncaa-api.henrygd.me/logo/charleston-so.svg,United States,charleston-so,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9068,9000,Charlotte,,https://ncaa-api.henrygd.me/logo/charlotte.svg,United States,charlotte,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9069,9000,Chattanooga,,https://ncaa-api.henrygd.me/logo/chattanooga.svg,United States,chattanooga,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9070,9000,Chicago St.,,https://ncaa-api.henrygd.me/logo/chicago-st.svg,United States,chicago-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9071,9000,Christian Brothers,,https://ncaa-api.henrygd.me/logo/christian-bros.svg,United States,christian-bros,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9072,9000,Cincinnati,,https://ncaa-api.henrygd.me/logo/cincinnati.svg,United States,cincinnati,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9074,9000,Clarion,,https://ncaa-api.henrygd.me/logo/clarion.svg,United States,clarion,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9075,9000,Clarke,,https://ncaa-api.henrygd.me/logo/clarke.svg,United States,clarke,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9076,9000,Clemson,,https://ncaa-api.henrygd.me/logo/clemson.svg,United States,clemson,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9077,9000,Cleveland St.,,https://ncaa-api.henrygd.me/logo/cleveland-st.svg,United States,cleveland-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9078,9000,Coastal Carolina,,https://ncaa-api.henrygd.me/logo/coastal-caro.svg,United States,coastal-caro,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9079,9000,Col. of Charleston,,https://ncaa-api.henrygd.me/logo/col-of-charleston.svg,United States,col-of-charleston,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9080,9000,Colgate,,https://ncaa-api.henrygd.me/logo/colgate.svg,United States,colgate,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9081,9000,Colorado,,https://ncaa-api.henrygd.me/logo/colorado.svg,United States,colorado,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9082,9000,Colorado Col.,,https://ncaa-api.henrygd.me/logo/colorado-col.svg,United States,colorado-col,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9083,9000,Colorado Mesa,,https://ncaa-api.henrygd.me/logo/colorado-mesa.svg,United States,colorado-mesa,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9084,9000,Colorado School of Mines,,https://ncaa-api.henrygd.me/logo/colorado-mines.svg,United States,colorado-mines,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9085,9000,Colorado St.,,https://ncaa-api.henrygd.me/logo/colorado-st.svg,United States,colorado-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9086,9000,Columbia,,https://ncaa-api.henrygd.me/logo/columbia.svg,United States,columbia,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9088,9000,Columbia (MO),,https://ncaa-api.henrygd.me/logo/columbia-mo.svg,United States,columbia-mo,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9087,9000,Columbia (SC),,https://ncaa-api.henrygd.me/logo/columbia-college.svg,United States,columbia-college,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9089,9000,Columbus St.,,https://ncaa-api.henrygd.me/logo/columbus-st.svg,United States,columbus-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9090,9000,Concord,,https://ncaa-api.henrygd.me/logo/concord.svg,United States,concord,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9091,9000,Concordia (MI),,https://ncaa-api.henrygd.me/logo/concordia-mi.svg,United States,concordia-mi,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9093,9000,Concordia (TX),,https://ncaa-api.henrygd.me/logo/concordia-tx.svg,United States,concordia-tx,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9092,9000,Concordia-St. Paul,,https://ncaa-api.henrygd.me/logo/concordia-st-paul.svg,United States,concordia-st-paul,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9094,9000,Converse University,,https://ncaa-api.henrygd.me/logo/converse.svg,United States,converse,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9095,9000,Cornell,,https://ncaa-api.henrygd.me/logo/cornell.svg,United States,cornell,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9096,9000,Creighton,,https://ncaa-api.henrygd.me/logo/creighton.svg,United States,creighton,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9097,9000,Dartmouth,,https://ncaa-api.henrygd.me/logo/dartmouth.svg,United States,dartmouth,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9098,9000,Davidson,,https://ncaa-api.henrygd.me/logo/davidson.svg,United States,davidson,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9099,9000,Dayton,,https://ncaa-api.henrygd.me/logo/dayton.svg,United States,dayton,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9104,9000,DePaul,,https://ncaa-api.henrygd.me/logo/depaul.svg,United States,depaul,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9100,9000,Delaware,,https://ncaa-api.henrygd.me/logo/delaware.svg,United States,delaware,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9101,9000,Delaware St.,,https://ncaa-api.henrygd.me/logo/delaware-st.svg,United States,delaware-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9102,9000,Delta St.,,https://ncaa-api.henrygd.me/logo/delta-st.svg,United States,delta-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9103,9000,Denver,,https://ncaa-api.henrygd.me/logo/denver.svg,United States,denver,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9105,9000,Detroit Mercy,,https://ncaa-api.henrygd.me/logo/detroit.svg,United States,detroit,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9106,9000,Dominican (NY),,https://ncaa-api.henrygd.me/logo/dominican-ny.svg,United States,dominican-ny,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9107,9000,Drake,,https://ncaa-api.henrygd.me/logo/drake.svg,United States,drake,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9108,9000,Drexel,,https://ncaa-api.henrygd.me/logo/drexel.svg,United States,drexel,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9109,9000,Duke,,https://ncaa-api.henrygd.me/logo/duke.svg,United States,duke,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9110,9000,Duquesne,,https://ncaa-api.henrygd.me/logo/duquesne.svg,United States,duquesne,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9112,9000,ETSU,,https://ncaa-api.henrygd.me/logo/east-tenn-st.svg,United States,east-tenn-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9111,9000,East Carolina,,https://ncaa-api.henrygd.me/logo/east-carolina.svg,United States,east-carolina,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9442,9000,East Texas A&M,,https://ncaa-api.henrygd.me/logo/tex-am-commerce.svg,United States,tex-am-commerce,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9113,9000,East Texas Baptist University,,https://ncaa-api.henrygd.me/logo/east-tex-baptist.svg,United States,east-tex-baptist,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9114,9000,Eastern Ill.,,https://ncaa-api.henrygd.me/logo/eastern-ill.svg,United States,eastern-ill,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9115,9000,Eastern Ky.,,https://ncaa-api.henrygd.me/logo/eastern-ky.svg,United States,eastern-ky,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9116,9000,Eastern Mich.,,https://ncaa-api.henrygd.me/logo/eastern-mich.svg,United States,eastern-mich,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9117,9000,Eastern Wash.,,https://ncaa-api.henrygd.me/logo/eastern-wash.svg,United States,eastern-wash,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9118,9000,Eckerd,,https://ncaa-api.henrygd.me/logo/eckerd.svg,United States,eckerd,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9119,9000,Edinboro,,https://ncaa-api.henrygd.me/logo/edinboro.svg,United States,edinboro,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9120,9000,Edward Waters,,https://ncaa-api.henrygd.me/logo/edward-waters.svg,United States,edward-waters,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9121,9000,Elon,,https://ncaa-api.henrygd.me/logo/elon.svg,United States,elon,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9122,9000,Embry-Riddle (AZ),,https://ncaa-api.henrygd.me/logo/embry-riddle-az.svg,United States,embry-riddle-az,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9123,9000,Embry-Riddle (FL),,https://ncaa-api.henrygd.me/logo/embry-riddle-fl.svg,United States,embry-riddle-fl,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9124,9000,Emory & Henry,,https://ncaa-api.henrygd.me/logo/emory-henry.svg,United States,emory-henry,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9125,9000,Emporia State University,,https://ncaa-api.henrygd.me/logo/emporia-st.svg,United States,emporia-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9126,9000,Evansville,,https://ncaa-api.henrygd.me/logo/evansville.svg,United States,evansville,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9130,9000,FDU,,https://ncaa-api.henrygd.me/logo/fdu.svg,United States,fdu,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9132,9000,FGCU,,https://ncaa-api.henrygd.me/logo/fgcu.svg,United States,fgcu,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9134,9000,FIU,,https://ncaa-api.henrygd.me/logo/fiu.svg,United States,fiu,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9127,9000,Fairfield,,https://ncaa-api.henrygd.me/logo/fairfield.svg,United States,fairfield,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9128,9000,Fairmont St.,,https://ncaa-api.henrygd.me/logo/fairmont-st.svg,United States,fairmont-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9129,9000,Faulkner,,https://ncaa-api.henrygd.me/logo/faulkner.svg,United States,faulkner,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9131,9000,Felician,,https://ncaa-api.henrygd.me/logo/felician.svg,United States,felician,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9135,9000,Fla. Atlantic,,https://ncaa-api.henrygd.me/logo/fla-atlantic.svg,United States,fla-atlantic,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9136,9000,Fla. Southern,,https://ncaa-api.henrygd.me/logo/fla-southern.svg,United States,fla-southern,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9137,9000,Flagler,,https://ncaa-api.henrygd.me/logo/flagler.svg,United States,flagler,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9138,9000,Florida,,https://ncaa-api.henrygd.me/logo/florida.svg,United States,florida,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9139,9000,Florida Col.,,https://ncaa-api.henrygd.me/logo/florida-col.svg,United States,florida-col,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9140,9000,Florida St.,,https://ncaa-api.henrygd.me/logo/florida-st.svg,United States,florida-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9141,9000,Florida Tech,,https://ncaa-api.henrygd.me/logo/florida-tech.svg,United States,florida-tech,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9142,9000,Fordham,,https://ncaa-api.henrygd.me/logo/fordham.svg,United States,fordham,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9143,9000,Francis Marion University,,https://ncaa-api.henrygd.me/logo/francis-marion.svg,United States,francis-marion,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9144,9000,Franklin Pierce,,https://ncaa-api.henrygd.me/logo/franklin-pierce.svg,United States,franklin-pierce,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9145,9000,Fresno St.,,https://ncaa-api.henrygd.me/logo/fresno-st.svg,United States,fresno-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9146,9000,Friends,,https://ncaa-api.henrygd.me/logo/friends.svg,United States,friends,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9147,9000,Furman,,https://ncaa-api.henrygd.me/logo/furman.svg,United States,furman,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9148,9000,Ga. Southern,,https://ncaa-api.henrygd.me/logo/ga-southern.svg,United States,ga-southern,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9149,9000,Gannon,,https://ncaa-api.henrygd.me/logo/gannon.svg,United States,gannon,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9150,9000,Gardner-Webb,,https://ncaa-api.henrygd.me/logo/gardner-webb.svg,United States,gardner-webb,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9151,9000,George Fox University,,https://ncaa-api.henrygd.me/logo/george-fox.svg,United States,george-fox,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9152,9000,George Mason,,https://ncaa-api.henrygd.me/logo/george-mason.svg,United States,george-mason,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9153,9000,George Washington,,https://ncaa-api.henrygd.me/logo/george-washington.svg,United States,george-washington,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9154,9000,Georgetown,,https://ncaa-api.henrygd.me/logo/georgetown.svg,United States,georgetown,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9155,9000,Georgia,,https://ncaa-api.henrygd.me/logo/georgia.svg,United States,georgia,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9156,9000,Georgia College,,https://ncaa-api.henrygd.me/logo/georgia-college.svg,United States,georgia-college,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9157,9000,Georgia St.,,https://ncaa-api.henrygd.me/logo/georgia-st.svg,United States,georgia-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9158,9000,Georgian Court,,https://ncaa-api.henrygd.me/logo/georgian-court.svg,United States,georgian-court,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9159,9000,Glenville St.,,https://ncaa-api.henrygd.me/logo/glenville-st.svg,United States,glenville-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9160,9000,Gonzaga,,https://ncaa-api.henrygd.me/logo/gonzaga.svg,United States,gonzaga,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9161,9000,Grambling,,https://ncaa-api.henrygd.me/logo/grambling.svg,United States,grambling,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9162,9000,Grand Canyon,,https://ncaa-api.henrygd.me/logo/grand-canyon.svg,United States,grand-canyon,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9163,9000,Grand View,,https://ncaa-api.henrygd.me/logo/grand-view.svg,United States,grand-view,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9165,9000,Green Bay,,https://ncaa-api.henrygd.me/logo/green-bay.svg,United States,green-bay,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9166,9000,Hampton,,https://ncaa-api.henrygd.me/logo/hampton.svg,United States,hampton,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9167,9000,Hanover College,,https://ncaa-api.henrygd.me/logo/hanover.svg,United States,hanover,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9168,9000,Harding,,https://ncaa-api.henrygd.me/logo/harding.svg,United States,harding,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9170,9000,Harvard,,https://ncaa-api.henrygd.me/logo/harvard.svg,United States,harvard,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9171,9000,Hawaii,,https://ncaa-api.henrygd.me/logo/hawaii.svg,United States,hawaii,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9172,9000,Hawaii Pacific,,https://ncaa-api.henrygd.me/logo/hawaii-pacific.svg,United States,hawaii-pacific,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9173,9000,Hendrix College,,https://ncaa-api.henrygd.me/logo/hendrix.svg,United States,hendrix,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9174,9000,High Point,,https://ncaa-api.henrygd.me/logo/high-point.svg,United States,high-point,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9175,9000,Hofstra,,https://ncaa-api.henrygd.me/logo/hofstra.svg,United States,hofstra,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9176,9000,Holy Cross,,https://ncaa-api.henrygd.me/logo/holy-cross.svg,United States,holy-cross,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9177,9000,Holy Family,,https://ncaa-api.henrygd.me/logo/holy-family.svg,United States,holy-family,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9178,9000,Houston,,https://ncaa-api.henrygd.me/logo/houston.svg,United States,houston,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9179,9000,Houston Christian,,https://ncaa-api.henrygd.me/logo/houston-christian.svg,United States,houston-christian,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9181,9000,Howard,,https://ncaa-api.henrygd.me/logo/howard.svg,United States,howard,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9182,9000,Howard Payne University,,https://ncaa-api.henrygd.me/logo/howard-payne.svg,United States,howard-payne,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9198,9000,IU Indy,,https://ncaa-api.henrygd.me/logo/iu-indy.svg,United States,iu-indy,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9183,9000,Idaho,,https://ncaa-api.henrygd.me/logo/idaho.svg,United States,idaho,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9184,9000,Idaho St.,,https://ncaa-api.henrygd.me/logo/idaho-st.svg,United States,idaho-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9187,9000,Illinois,,https://ncaa-api.henrygd.me/logo/illinois.svg,United States,illinois,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9188,9000,Illinois St.,,https://ncaa-api.henrygd.me/logo/illinois-st.svg,United States,illinois-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9189,9000,Indiana,,https://ncaa-api.henrygd.me/logo/indiana.svg,United States,indiana,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9190,9000,Indiana (PA),,https://ncaa-api.henrygd.me/logo/indiana-pa.svg,United States,indiana-pa,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9191,9000,Indiana St.,,https://ncaa-api.henrygd.me/logo/indiana-st.svg,United States,indiana-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9192,9000,Indiana Tech,,https://ncaa-api.henrygd.me/logo/indiana-tech.svg,United States,indiana-tech,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9194,9000,Iona,,https://ncaa-api.henrygd.me/logo/iona.svg,United States,iona,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9195,9000,Iowa,,https://ncaa-api.henrygd.me/logo/iowa.svg,United States,iowa,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9196,9000,Iowa St.,,https://ncaa-api.henrygd.me/logo/iowa-st.svg,United States,iowa-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9199,9000,Jackson St.,,https://ncaa-api.henrygd.me/logo/jackson-st.svg,United States,jackson-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9200,9000,Jacksonville,,https://ncaa-api.henrygd.me/logo/jacksonville.svg,United States,jacksonville,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9201,9000,Jacksonville St.,,https://ncaa-api.henrygd.me/logo/jacksonville-st.svg,United States,jacksonville-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9202,9000,James Madison,,https://ncaa-api.henrygd.me/logo/james-madison.svg,United States,james-madison,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9339,9000,Jefferson,,https://ncaa-api.henrygd.me/logo/philadelphia-u.svg,United States,philadelphia-u,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9204,9000,John Brown,,https://ncaa-api.henrygd.me/logo/john-brown.svg,United States,john-brown,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9205,9000,Justice U.,,https://ncaa-api.henrygd.me/logo/justice-col.svg,United States,justice-col,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9206,9000,Kansas,,https://ncaa-api.henrygd.me/logo/kansas.svg,United States,kansas,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9475,9000,Kansas City,,https://ncaa-api.henrygd.me/logo/umkc.svg,United States,umkc,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9207,9000,Kansas St.,,https://ncaa-api.henrygd.me/logo/kansas-st.svg,United States,kansas-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9208,9000,Kennesaw St.,,https://ncaa-api.henrygd.me/logo/kennesaw-st.svg,United States,kennesaw-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9209,9000,Kent St.,,https://ncaa-api.henrygd.me/logo/kent-st.svg,United States,kent-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9210,9000,Kentucky,,https://ncaa-api.henrygd.me/logo/kentucky.svg,United States,kentucky,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9211,9000,Kutztown University of Pennsylvania,,https://ncaa-api.henrygd.me/logo/kutztown.svg,United States,kutztown,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9227,9000,LIU,,https://ncaa-api.henrygd.me/logo/long-island.svg,United States,long-island,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9234,9000,LMU (CA),,https://ncaa-api.henrygd.me/logo/loyola-marymount.svg,United States,loyola-marymount,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9235,9000,LSU,,https://ncaa-api.henrygd.me/logo/lsu.svg,United States,lsu,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9236,9000,LSU-Alexandria,,https://ncaa-api.henrygd.me/logo/lsu-alexandria.svg,United States,lsu-alexandria,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9237,9000,LSU-Shreveport,,https://ncaa-api.henrygd.me/logo/lsu-shreveport.svg,United States,lsu-shreveport,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9214,9000,La Salle,,https://ncaa-api.henrygd.me/logo/la-salle.svg,United States,la-salle,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9229,9000,La. Christian,,https://ncaa-api.henrygd.me/logo/louisiana-col.svg,United States,louisiana-col,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9215,9000,Lafayette,,https://ncaa-api.henrygd.me/logo/lafayette.svg,United States,lafayette,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9216,9000,Lamar University,,https://ncaa-api.henrygd.me/logo/lamar.svg,United States,lamar,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9217,9000,Lawrence University,,https://ncaa-api.henrygd.me/logo/lawrence.svg,United States,lawrence,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9218,9000,Le Moyne,,https://ncaa-api.henrygd.me/logo/le-moyne.svg,United States,le-moyne,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9219,9000,Lee,,https://ncaa-api.henrygd.me/logo/lee.svg,United States,lee,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9220,9000,Lehigh,,https://ncaa-api.henrygd.me/logo/lehigh.svg,United States,lehigh,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9221,9000,Lethbridge (CAN),,https://ncaa-api.henrygd.me/logo/lethbridge-can.svg,United States,lethbridge-can,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9222,9000,Liberty,,https://ncaa-api.henrygd.me/logo/liberty.svg,United States,liberty,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9223,9000,Lincoln University (Pennsylvania),,https://ncaa-api.henrygd.me/logo/lincoln-pa.svg,United States,lincoln-pa,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9224,9000,Lindenwood,,https://ncaa-api.henrygd.me/logo/lindenwood-mo.svg,United States,lindenwood-mo,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9225,9000,Lipscomb,,https://ncaa-api.henrygd.me/logo/lipscomb.svg,United States,lipscomb,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9462,9000,Little Rock,,https://ncaa-api.henrygd.me/logo/ualr.svg,United States,ualr,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9226,9000,Long Beach St.,,https://ncaa-api.henrygd.me/logo/long-beach-st.svg,United States,long-beach-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9228,9000,Longwood,,https://ncaa-api.henrygd.me/logo/longwood.svg,United States,longwood,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9212,9000,Louisiana,,https://ncaa-api.henrygd.me/logo/la-lafayette.svg,United States,la-lafayette,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9230,9000,Louisiana Tech,,https://ncaa-api.henrygd.me/logo/louisiana-tech.svg,United States,louisiana-tech,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9231,9000,Louisville,,https://ncaa-api.henrygd.me/logo/louisville.svg,United States,louisville,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9232,9000,Loyola Chicago,,https://ncaa-api.henrygd.me/logo/loyola-chicago.svg,United States,loyola-chicago,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9233,9000,Loyola Maryland,,https://ncaa-api.henrygd.me/logo/loyola-maryland.svg,United States,loyola-maryland,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9238,9000,Lynn,,https://ncaa-api.henrygd.me/logo/lynn.svg,United States,lynn,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9239,9000,Lyon College,,https://ncaa-api.henrygd.me/logo/lyon.svg,United States,lyon,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9267,9000,MSU Moorhead,,https://ncaa-api.henrygd.me/logo/minn-st-moorhead.svg,United States,minn-st-moorhead,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9240,9000,Madonna,,https://ncaa-api.henrygd.me/logo/madonna.svg,United States,madonna,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9241,9000,Maine,,https://ncaa-api.henrygd.me/logo/maine.svg,United States,maine,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9242,9000,Manhattan,,https://ncaa-api.henrygd.me/logo/manhattan.svg,United States,manhattan,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9243,9000,Manitoba (CAN),,https://ncaa-api.henrygd.me/logo/manitoba-can.svg,United States,manitoba-can,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9244,9000,Marist,,https://ncaa-api.henrygd.me/logo/marist.svg,United States,marist,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9245,9000,Marquette,,https://ncaa-api.henrygd.me/logo/marquette.svg,United States,marquette,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9246,9000,Mars Hill,,https://ncaa-api.henrygd.me/logo/mars-hill.svg,United States,mars-hill,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9247,9000,Marshall,,https://ncaa-api.henrygd.me/logo/marshall.svg,United States,marshall,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9248,9000,Maryland,,https://ncaa-api.henrygd.me/logo/maryland.svg,United States,maryland,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9249,9000,Marymount University (Virginia),,https://ncaa-api.henrygd.me/logo/marymount-va.svg,United States,marymount-va,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9250,9000,Marywood,,https://ncaa-api.henrygd.me/logo/marywood.svg,United States,marywood,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9251,9000,Massachusetts,,https://ncaa-api.henrygd.me/logo/massachusetts.svg,United States,massachusetts,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9252,9000,McNeese,,https://ncaa-api.henrygd.me/logo/mcneese.svg,United States,mcneese,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9253,9000,Memphis,,https://ncaa-api.henrygd.me/logo/memphis.svg,United States,memphis,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9254,9000,Mercer,,https://ncaa-api.henrygd.me/logo/mercer.svg,United States,mercer,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9255,9000,Mercy,,https://ncaa-api.henrygd.me/logo/mercy.svg,United States,mercy,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9256,9000,Mercyhurst,,https://ncaa-api.henrygd.me/logo/mercyhurst.svg,United States,mercyhurst,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9257,9000,Merrimack,,https://ncaa-api.henrygd.me/logo/merrimack.svg,United States,merrimack,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9258,9000,Miami (FL),,https://ncaa-api.henrygd.me/logo/miami-fl.svg,United States,miami-fl,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9259,9000,Miami (OH),,https://ncaa-api.henrygd.me/logo/miami-oh.svg,United States,miami-oh,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9260,9000,Michigan,,https://ncaa-api.henrygd.me/logo/michigan.svg,United States,michigan,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9261,9000,Michigan St.,,https://ncaa-api.henrygd.me/logo/michigan-st.svg,United States,michigan-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9262,9000,Middle Georgia,,https://ncaa-api.henrygd.me/logo/middle-georgia-st.svg,United States,middle-georgia-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9263,9000,Middle Tenn.,,https://ncaa-api.henrygd.me/logo/middle-tenn.svg,United States,middle-tenn,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9264,9000,Milwaukee,,https://ncaa-api.henrygd.me/logo/milwaukee.svg,United States,milwaukee,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9268,9000,Minnesota,,https://ncaa-api.henrygd.me/logo/minnesota.svg,United States,minnesota,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9266,9000,Minnesota St.,,https://ncaa-api.henrygd.me/logo/minn-st-mankato.svg,United States,minn-st-mankato,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9269,9000,Mississippi Christian,,https://ncaa-api.henrygd.me/logo/mississippi-christ.svg,United States,mississippi-christ,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9270,9000,Mississippi St.,,https://ncaa-api.henrygd.me/logo/mississippi-st.svg,United States,mississippi-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9271,9000,Mississippi Valley State University,,https://ncaa-api.henrygd.me/logo/mississippi-val.svg,United States,mississippi-val,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9272,9000,Missouri,,https://ncaa-api.henrygd.me/logo/missouri.svg,United States,missouri,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9273,9000,Missouri St.,,https://ncaa-api.henrygd.me/logo/missouri-st.svg,United States,missouri-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9275,9000,Mobile,,https://ncaa-api.henrygd.me/logo/mobile.svg,United States,mobile,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9276,9000,Molloy,,https://ncaa-api.henrygd.me/logo/molloy.svg,United States,molloy,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9277,9000,Monmouth,,https://ncaa-api.henrygd.me/logo/monmouth.svg,United States,monmouth,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9278,9000,Mont. St. Billings,,https://ncaa-api.henrygd.me/logo/mont-st-billings.svg,United States,mont-st-billings,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9279,9000,Montana,,https://ncaa-api.henrygd.me/logo/montana.svg,United States,montana,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9280,9000,Montevallo,,https://ncaa-api.henrygd.me/logo/montevallo.svg,United States,montevallo,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9281,9000,Morehead St.,,https://ncaa-api.henrygd.me/logo/morehead-st.svg,United States,morehead-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9282,9000,Morningside,,https://ncaa-api.henrygd.me/logo/morningside.svg,United States,morningside,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9285,9000,Mount St. Mary's,,https://ncaa-api.henrygd.me/logo/mt-st-marys.svg,United States,mt-st-marys,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9283,9000,Mt. Royal (CAN),,https://ncaa-api.henrygd.me/logo/mt-royal-can.svg,United States,mt-royal-can,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9284,9000,Mt. St. Joseph,,https://ncaa-api.henrygd.me/logo/mt-st-joseph.svg,United States,mt-st-joseph,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9286,9000,Murray St.,,https://ncaa-api.henrygd.me/logo/murray-st.svg,United States,murray-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9303,9000,NC State,,https://ncaa-api.henrygd.me/logo/north-carolina-st.svg,United States,north-carolina-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9312,9000,NIU,,https://ncaa-api.henrygd.me/logo/northern-ill.svg,United States,northern-ill,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9299,9000,NJIT,,https://ncaa-api.henrygd.me/logo/njit.svg,United States,njit,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9287,9000,Navy,,https://ncaa-api.henrygd.me/logo/navy.svg,United States,navy,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9289,9000,Nebraska,,https://ncaa-api.henrygd.me/logo/nebraska.svg,United States,nebraska,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9411,9000,Nelson,,https://ncaa-api.henrygd.me/logo/southwestern-assemblies.svg,United States,southwestern-assemblies,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9290,9000,Nevada,,https://ncaa-api.henrygd.me/logo/nevada.svg,United States,nevada,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9291,9000,New College (FL),,https://ncaa-api.henrygd.me/logo/new-college-fl.svg,United States,new-college-fl,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9292,9000,New Hampshire,,https://ncaa-api.henrygd.me/logo/new-hampshire.svg,United States,new-hampshire,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9293,9000,New Haven,,https://ncaa-api.henrygd.me/logo/new-haven.svg,United States,new-haven,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9294,9000,New Mexico,,https://ncaa-api.henrygd.me/logo/new-mexico.svg,United States,new-mexico,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9295,9000,New Mexico St.,,https://ncaa-api.henrygd.me/logo/new-mexico-st.svg,United States,new-mexico-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9296,9000,Newberry,,https://ncaa-api.henrygd.me/logo/newberry.svg,United States,newberry,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9297,9000,Niagara,,https://ncaa-api.henrygd.me/logo/niagara.svg,United States,niagara,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9298,9000,Nicholls,,https://ncaa-api.henrygd.me/logo/nicholls-st.svg,United States,nicholls-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9300,9000,North Ala.,,https://ncaa-api.henrygd.me/logo/north-ala.svg,United States,north-ala,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9301,9000,North American,,https://ncaa-api.henrygd.me/logo/north-american.svg,United States,north-american,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9302,9000,North Carolina,,https://ncaa-api.henrygd.me/logo/north-carolina.svg,United States,north-carolina,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9304,9000,North Dakota,,https://ncaa-api.henrygd.me/logo/north-dakota.svg,United States,north-dakota,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9305,9000,North Dakota St.,,https://ncaa-api.henrygd.me/logo/north-dakota-st.svg,United States,north-dakota-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9306,9000,North Florida,,https://ncaa-api.henrygd.me/logo/north-florida.svg,United States,north-florida,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9307,9000,North Greenville,,https://ncaa-api.henrygd.me/logo/north-greenville.svg,United States,north-greenville,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9308,9000,North Texas,,https://ncaa-api.henrygd.me/logo/north-texas.svg,United States,north-texas,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9309,9000,Northeastern,,https://ncaa-api.henrygd.me/logo/northeastern.svg,United States,northeastern,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9310,9000,Northern Ariz.,,https://ncaa-api.henrygd.me/logo/northern-ariz.svg,United States,northern-ariz,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9311,9000,Northern Colo.,,https://ncaa-api.henrygd.me/logo/northern-colo.svg,United States,northern-colo,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9313,9000,Northern Ky.,,https://ncaa-api.henrygd.me/logo/northern-ky.svg,United States,northern-ky,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9315,9000,Northwest Mo. St.,,https://ncaa-api.henrygd.me/logo/northwest-mo-st.svg,United States,northwest-mo-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9316,9000,Northwestern,,https://ncaa-api.henrygd.me/logo/northwestern.svg,United States,northwestern,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9317,9000,Northwestern St.,,https://ncaa-api.henrygd.me/logo/northwestern-st.svg,United States,northwestern-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9318,9000,Northwood University,,https://ncaa-api.henrygd.me/logo/northwood-mi.svg,United States,northwood-mi,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9319,9000,Notre Dame,,https://ncaa-api.henrygd.me/logo/notre-dame.svg,United States,notre-dame,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9320,9000,Nova Southeastern,,https://ncaa-api.henrygd.me/logo/nova-southeastern.svg,United States,nova-southeastern,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9321,9000,Oakland,,https://ncaa-api.henrygd.me/logo/oakland.svg,United States,oakland,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9322,9000,Ohio,,https://ncaa-api.henrygd.me/logo/ohio.svg,United States,ohio,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9323,9000,Ohio Dominican University,,https://ncaa-api.henrygd.me/logo/ohio-dominican.svg,United States,ohio-dominican,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9324,9000,Ohio St.,,https://ncaa-api.henrygd.me/logo/ohio-st.svg,United States,ohio-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9325,9000,Oklahoma,,https://ncaa-api.henrygd.me/logo/oklahoma.svg,United States,oklahoma,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9326,9000,Oklahoma St.,,https://ncaa-api.henrygd.me/logo/oklahoma-st.svg,United States,oklahoma-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9327,9000,Old Dominion,,https://ncaa-api.henrygd.me/logo/old-dominion.svg,United States,old-dominion,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9328,9000,Ole Miss,,https://ncaa-api.henrygd.me/logo/ole-miss.svg,United States,ole-miss,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9288,9000,Omaha,,https://ncaa-api.henrygd.me/logo/neb-omaha.svg,United States,neb-omaha,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9329,9000,Oral Roberts,,https://ncaa-api.henrygd.me/logo/oral-roberts.svg,United States,oral-roberts,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9330,9000,Oregon,,https://ncaa-api.henrygd.me/logo/oregon.svg,United States,oregon,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9331,9000,Oregon St.,,https://ncaa-api.henrygd.me/logo/oregon-st.svg,United States,oregon-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9332,9000,Our Lady of the Lake,,https://ncaa-api.henrygd.me/logo/our-lady-of-the-lake.svg,United States,our-lady-of-the-lake,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9333,9000,Pace,,https://ncaa-api.henrygd.me/logo/pace.svg,United States,pace,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9334,9000,Pacific,,https://ncaa-api.henrygd.me/logo/pacific.svg,United States,pacific,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9335,9000,Pacific University (Oregon),,https://ncaa-api.henrygd.me/logo/pacific-or.svg,United States,pacific-or,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9336,9000,Penn,,https://ncaa-api.henrygd.me/logo/penn.svg,United States,penn,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9337,9000,Penn St.,,https://ncaa-api.henrygd.me/logo/penn-st.svg,United States,penn-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9338,9000,Pepperdine,,https://ncaa-api.henrygd.me/logo/pepperdine.svg,United States,pepperdine,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9340,9000,Pitt.-Johnstown,,https://ncaa-api.henrygd.me/logo/pitt-johnstown.svg,United States,pitt-johnstown,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9341,9000,Pittsburgh,,https://ncaa-api.henrygd.me/logo/pittsburgh.svg,United States,pittsburgh,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9342,9000,Portland,,https://ncaa-api.henrygd.me/logo/portland.svg,United States,portland,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9343,9000,Portland St.,,https://ncaa-api.henrygd.me/logo/portland-st.svg,United States,portland-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9344,9000,Post,,https://ncaa-api.henrygd.me/logo/post.svg,United States,post,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9345,9000,Prairie View,,https://ncaa-api.henrygd.me/logo/prairie-view.svg,United States,prairie-view,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9346,9000,Presbyterian,,https://ncaa-api.henrygd.me/logo/presbyterian.svg,United States,presbyterian,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9347,9000,Princeton,,https://ncaa-api.henrygd.me/logo/princeton.svg,United States,princeton,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9348,9000,Providence,,https://ncaa-api.henrygd.me/logo/providence.svg,United States,providence,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9164,9000,Providence (MT),,https://ncaa-api.henrygd.me/logo/great-falls.svg,United States,great-falls,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9349,9000,Purdue,,https://ncaa-api.henrygd.me/logo/purdue.svg,United States,purdue,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9197,9000,Purdue Fort Wayne,,https://ncaa-api.henrygd.me/logo/ipfw.svg,United States,ipfw,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9350,9000,Queens (NC),,https://ncaa-api.henrygd.me/logo/queens-nc.svg,United States,queens-nc,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9351,9000,Quinnipiac,,https://ncaa-api.henrygd.me/logo/quinnipiac.svg,United States,quinnipiac,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9352,9000,Radford,,https://ncaa-api.henrygd.me/logo/radford.svg,United States,radford,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9353,9000,Regent,,https://ncaa-api.henrygd.me/logo/regent.svg,United States,regent,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9354,9000,Regis (CO),,https://ncaa-api.henrygd.me/logo/regis-co.svg,United States,regis-co,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9355,9000,Rhode Island,,https://ncaa-api.henrygd.me/logo/rhode-island.svg,United States,rhode-island,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9356,9000,Rice,,https://ncaa-api.henrygd.me/logo/rice.svg,United States,rice,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9357,9000,Richmond,,https://ncaa-api.henrygd.me/logo/richmond.svg,United States,richmond,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9358,9000,Rider,,https://ncaa-api.henrygd.me/logo/rider.svg,United States,rider,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9359,9000,Rio Grande,,https://ncaa-api.henrygd.me/logo/rio-grande.svg,United States,rio-grande,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9360,9000,Robert Morris,,https://ncaa-api.henrygd.me/logo/robert-morris.svg,United States,robert-morris,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9361,9000,Rochester Christian,,https://ncaa-api.henrygd.me/logo/rochester-mi.svg,United States,rochester-mi,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9362,9000,Rockhurst,,https://ncaa-api.henrygd.me/logo/rockhurst.svg,United States,rockhurst,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9363,9000,Rogers St.,,https://ncaa-api.henrygd.me/logo/rogers-st.svg,United States,rogers-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9364,9000,Rutgers,,https://ncaa-api.henrygd.me/logo/rutgers.svg,United States,rutgers,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9428,9000,SFA,,https://ncaa-api.henrygd.me/logo/stephen-f-austin.svg,United States,stephen-f-austin,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9388,9000,SIUE,,https://ncaa-api.henrygd.me/logo/siu-edwardsville.svg,United States,siu-edwardsville,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9390,9000,SMU,,https://ncaa-api.henrygd.me/logo/smu.svg,United States,smu,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9365,9000,Sacramento St.,,https://ncaa-api.henrygd.me/logo/sacramento-st.svg,United States,sacramento-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9366,9000,Sacred Heart,,https://ncaa-api.henrygd.me/logo/sacred-heart.svg,United States,sacred-heart,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9414,9000,Saint Anselm,,https://ncaa-api.henrygd.me/logo/st-anselm.svg,United States,st-anselm,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9417,9000,Saint Francis,,https://ncaa-api.henrygd.me/logo/st-francis-pa.svg,United States,st-francis-pa,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9367,9000,Saint Joseph's,,https://ncaa-api.henrygd.me/logo/saint-josephs.svg,United States,saint-josephs,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9368,9000,Saint Leo,,https://ncaa-api.henrygd.me/logo/saint-leo.svg,United States,saint-leo,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9369,9000,Saint Louis,,https://ncaa-api.henrygd.me/logo/saint-louis.svg,United States,saint-louis,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9420,9000,Saint Mary's (CA),,https://ncaa-api.henrygd.me/logo/st-marys-ca.svg,United States,st-marys-ca,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9370,9000,Saint Michael's,,https://ncaa-api.henrygd.me/logo/saint-michaels.svg,United States,saint-michaels,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9422,9000,Saint Peter's,,https://ncaa-api.henrygd.me/logo/st-peters.svg,United States,st-peters,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9371,9000,Saint Rose,,https://ncaa-api.henrygd.me/logo/saint-rose.svg,United States,saint-rose,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9372,9000,Sam Houston,,https://ncaa-api.henrygd.me/logo/sam-houston-st.svg,United States,sam-houston-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9373,9000,Samford,,https://ncaa-api.henrygd.me/logo/samford.svg,United States,samford,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9374,9000,San Diego,,https://ncaa-api.henrygd.me/logo/san-diego.svg,United States,san-diego,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9375,9000,San Diego St.,,https://ncaa-api.henrygd.me/logo/san-diego-st.svg,United States,san-diego-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9376,9000,San Francisco,,https://ncaa-api.henrygd.me/logo/san-francisco.svg,United States,san-francisco,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9377,9000,San Jose St.,,https://ncaa-api.henrygd.me/logo/san-jose-st.svg,United States,san-jose-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9378,9000,Santa Clara,,https://ncaa-api.henrygd.me/logo/santa-clara.svg,United States,santa-clara,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9380,9000,Schreiner,,https://ncaa-api.henrygd.me/logo/schreiner.svg,United States,schreiner,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9381,9000,Seattle U,,https://ncaa-api.henrygd.me/logo/seattle.svg,United States,seattle,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9382,9000,Seton Hall,,https://ncaa-api.henrygd.me/logo/seton-hall.svg,United States,seton-hall,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9383,9000,Seton Hill,,https://ncaa-api.henrygd.me/logo/seton-hill.svg,United States,seton-hill,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9384,9000,Shepherd,,https://ncaa-api.henrygd.me/logo/shepherd.svg,United States,shepherd,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9385,9000,Shorter,,https://ncaa-api.henrygd.me/logo/shorter.svg,United States,shorter,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9386,9000,Siena,,https://ncaa-api.henrygd.me/logo/siena.svg,United States,siena,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9387,9000,Simon Fraser,,https://ncaa-api.henrygd.me/logo/simon-fraser.svg,United States,simon-fraser,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9389,9000,Slippery Rock,,https://ncaa-api.henrygd.me/logo/slippery-rock.svg,United States,slippery-rock,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9391,9000,South Alabama,,https://ncaa-api.henrygd.me/logo/south-ala.svg,United States,south-ala,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9392,9000,South Carolina,,https://ncaa-api.henrygd.me/logo/south-carolina.svg,United States,south-carolina,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9393,9000,South Carolina St.,,https://ncaa-api.henrygd.me/logo/south-carolina-st.svg,United States,south-carolina-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9394,9000,South Dakota,,https://ncaa-api.henrygd.me/logo/south-dakota.svg,United States,south-dakota,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9395,9000,South Dakota St.,,https://ncaa-api.henrygd.me/logo/south-dakota-st.svg,United States,south-dakota-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9396,9000,South Fla.,,https://ncaa-api.henrygd.me/logo/south-fla.svg,United States,south-fla,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9397,9000,Southeast Mo. St.,,https://ncaa-api.henrygd.me/logo/southeast-mo-st.svg,United States,southeast-mo-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9398,9000,Southeastern La.,,https://ncaa-api.henrygd.me/logo/southeastern-la.svg,United States,southeastern-la,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9399,9000,Southern California,,https://ncaa-api.henrygd.me/logo/southern-california.svg,United States,southern-california,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9400,9000,Southern Conn. St.,,https://ncaa-api.henrygd.me/logo/southern-conn-st.svg,United States,southern-conn-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9401,9000,Southern Ill.,,https://ncaa-api.henrygd.me/logo/southern-ill.svg,United States,southern-ill,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9402,9000,Southern Ind.,,https://ncaa-api.henrygd.me/logo/southern-ind.svg,United States,southern-ind,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9403,9000,Southern Me.,,https://ncaa-api.henrygd.me/logo/southern-me.svg,United States,southern-me,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9404,9000,Southern Miss.,,https://ncaa-api.henrygd.me/logo/southern-miss.svg,United States,southern-miss,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9406,9000,Southern N.H.,,https://ncaa-api.henrygd.me/logo/southern-nh.svg,United States,southern-nh,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9405,9000,Southern Nazarene,,https://ncaa-api.henrygd.me/logo/southern-nazarene.svg,United States,southern-nazarene,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9407,9000,Southern U.,,https://ncaa-api.henrygd.me/logo/southern-u.svg,United States,southern-u,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9408,9000,Southern Utah,,https://ncaa-api.henrygd.me/logo/southern-utah.svg,United States,southern-utah,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9409,9000,Southern Wesleyan,,https://ncaa-api.henrygd.me/logo/southern-wesleyan.svg,United States,southern-wesleyan,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9410,9000,Southwest Minn. St.,,https://ncaa-api.henrygd.me/logo/southwest-minn-st.svg,United States,southwest-minn-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9412,9000,Spring Hill,,https://ncaa-api.henrygd.me/logo/spring-hill.svg,United States,spring-hill,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9413,9000,St. Ambrose,,https://ncaa-api.henrygd.me/logo/st-ambrose.svg,United States,st-ambrose,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9415,9000,St. Bonaventure,,https://ncaa-api.henrygd.me/logo/st-bonaventure.svg,United States,st-bonaventure,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9416,9000,St. Francis (IN),,https://ncaa-api.henrygd.me/logo/st-francis-in.svg,United States,st-francis-in,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9418,9000,St. John's (NY),,https://ncaa-api.henrygd.me/logo/st-johns-ny.svg,United States,st-johns-ny,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9421,9000,St. Mary's (TX),,https://ncaa-api.henrygd.me/logo/st-marys-tx.svg,United States,st-marys-tx,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9419,9000,St. Mary-Woods,,https://ncaa-api.henrygd.me/logo/st-mary-woods.svg,United States,st-mary-woods,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9423,9000,St. Thomas (MN),,https://ncaa-api.henrygd.me/logo/st-thomas-mn.svg,United States,st-thomas-mn,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9424,9000,St. Thomas (TX),,https://ncaa-api.henrygd.me/logo/st-thomas-tx.svg,United States,st-thomas-tx,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9425,9000,St. Xavier,,https://ncaa-api.henrygd.me/logo/st-xavier.svg,United States,st-xavier,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9426,9000,Stanford,,https://ncaa-api.henrygd.me/logo/stanford.svg,United States,stanford,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9427,9000,Staten Island,,https://ncaa-api.henrygd.me/logo/staten-island.svg,United States,staten-island,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9429,9000,Stetson,,https://ncaa-api.henrygd.me/logo/stetson.svg,United States,stetson,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9430,9000,Stonehill,,https://ncaa-api.henrygd.me/logo/stonehill.svg,United States,stonehill,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9431,9000,Stony Brook,,https://ncaa-api.henrygd.me/logo/stony-brook.svg,United States,stony-brook,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9432,9000,Sul Ross St.,,https://ncaa-api.henrygd.me/logo/sul-ross-st.svg,United States,sul-ross-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9433,9000,Syracuse,,https://ncaa-api.henrygd.me/logo/syracuse.svg,United States,syracuse,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9436,9000,TAMU-San Antonio,,https://ncaa-api.henrygd.me/logo/tamu-san-antonio.svg,United States,tamu-san-antonio,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9438,9000,TCU,,https://ncaa-api.henrygd.me/logo/tcu.svg,United States,tcu,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9434,9000,Talladega,,https://ncaa-api.henrygd.me/logo/talladega.svg,United States,talladega,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9435,9000,Tampa,,https://ncaa-api.henrygd.me/logo/tampa.svg,United States,tampa,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9437,9000,Tarleton St.,,https://ncaa-api.henrygd.me/logo/tarleton-st.svg,United States,tarleton-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9439,9000,Temple,,https://ncaa-api.henrygd.me/logo/temple.svg,United States,temple,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9440,9000,Tennessee,,https://ncaa-api.henrygd.me/logo/tennessee.svg,United States,tennessee,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9441,9000,Tennessee Tech,,https://ncaa-api.henrygd.me/logo/tennessee-tech.svg,United States,tennessee-tech,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9443,9000,Tex. A&M Int'l,,https://ncaa-api.henrygd.me/logo/tex-am-intl.svg,United States,tex-am-intl,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9445,9000,Texas,,https://ncaa-api.henrygd.me/logo/texas.svg,United States,texas,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9446,9000,Texas A&M,,https://ncaa-api.henrygd.me/logo/texas-am.svg,United States,texas-am,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9180,9000,Texas A&M-Victoria,,https://ncaa-api.henrygd.me/logo/houston-victoria.svg,United States,houston-victoria,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9447,9000,Texas Southern,,https://ncaa-api.henrygd.me/logo/texas-southern.svg,United States,texas-southern,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9448,9000,Texas St.,,https://ncaa-api.henrygd.me/logo/texas-st.svg,United States,texas-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9449,9000,Texas Tech,,https://ncaa-api.henrygd.me/logo/texas-tech.svg,United States,texas-tech,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9073,9000,The Citadel,,https://ncaa-api.henrygd.me/logo/citadel.svg,United States,citadel,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9450,9000,Tiffin University,,https://ncaa-api.henrygd.me/logo/tiffin.svg,United States,tiffin,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9451,9000,Toccoa Falls,,https://ncaa-api.henrygd.me/logo/toccoa-falls.svg,United States,toccoa-falls,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9452,9000,Toledo,,https://ncaa-api.henrygd.me/logo/toledo.svg,United States,toledo,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9453,9000,Tougaloo,,https://ncaa-api.henrygd.me/logo/tougaloo.svg,United States,tougaloo,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9454,9000,Towson,,https://ncaa-api.henrygd.me/logo/towson.svg,United States,towson,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9455,9000,Trevecca Nazarene,,https://ncaa-api.henrygd.me/logo/trevecca-nazarene.svg,United States,trevecca-nazarene,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9456,9000,Troy,,https://ncaa-api.henrygd.me/logo/troy.svg,United States,troy,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9457,9000,Truett-McConnell,,https://ncaa-api.henrygd.me/logo/truett-mcconnell.svg,United States,truett-mcconnell,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9458,9000,Truman St.,,https://ncaa-api.henrygd.me/logo/truman.svg,United States,truman,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9459,9000,Tulsa,,https://ncaa-api.henrygd.me/logo/tulsa.svg,United States,tulsa,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9460,9000,Tuskegee,,https://ncaa-api.henrygd.me/logo/tuskegee.svg,United States,tuskegee,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9483,9000,U.S. Sports University,,https://ncaa-api.henrygd.me/logo/us-sports-academy.svg,United States,us-sports-academy,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9461,9000,UAB,,https://ncaa-api.henrygd.me/logo/uab.svg,United States,uab,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9004,9000,UAH,,https://ncaa-api.henrygd.me/logo/ala-huntsville.svg,United States,ala-huntsville,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9008,9000,UAlbany,,https://ncaa-api.henrygd.me/logo/albany-ny.svg,United States,albany-ny,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9464,9000,UC Davis,,https://ncaa-api.henrygd.me/logo/uc-davis.svg,United States,uc-davis,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9465,9000,UC Irvine,,https://ncaa-api.henrygd.me/logo/uc-irvine.svg,United States,uc-irvine,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9466,9000,UC Riverside,,https://ncaa-api.henrygd.me/logo/uc-riverside.svg,United States,uc-riverside,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9467,9000,UC San Diego,,https://ncaa-api.henrygd.me/logo/uc-san-diego.svg,United States,uc-san-diego,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9468,9000,UC Santa Barbara,,https://ncaa-api.henrygd.me/logo/uc-santa-barbara.svg,United States,uc-santa-barbara,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9463,9000,UCCS,,https://ncaa-api.henrygd.me/logo/uc-colo-springs.svg,United States,uc-colo-springs,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9469,9000,UCF,,https://ncaa-api.henrygd.me/logo/ucf.svg,United States,ucf,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9470,9000,UCLA,,https://ncaa-api.henrygd.me/logo/ucla.svg,United States,ucla,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9471,9000,UConn,,https://ncaa-api.henrygd.me/logo/uconn.svg,United States,uconn,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9185,9000,UIC,,https://ncaa-api.henrygd.me/logo/ill-chicago.svg,United States,ill-chicago,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9472,9000,UIW,,https://ncaa-api.henrygd.me/logo/uiw.svg,United States,uiw,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9213,9000,ULM,,https://ncaa-api.henrygd.me/logo/la-monroe.svg,United States,la-monroe,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9474,9000,UMBC,,https://ncaa-api.henrygd.me/logo/umbc.svg,United States,umbc,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9473,9000,UMass Lowell,,https://ncaa-api.henrygd.me/logo/umass-lowell.svg,United States,umass-lowell,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9476,9000,UNC Asheville,,https://ncaa-api.henrygd.me/logo/unc-asheville.svg,United States,unc-asheville,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9477,9000,UNC Greensboro,,https://ncaa-api.henrygd.me/logo/unc-greensboro.svg,United States,unc-greensboro,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9478,9000,UNCW,,https://ncaa-api.henrygd.me/logo/unc-wilmington.svg,United States,unc-wilmington,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9479,9000,UNI,,https://ncaa-api.henrygd.me/logo/uni.svg,United States,uni,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9481,9000,UNLV,,https://ncaa-api.henrygd.me/logo/unlv.svg,United States,unlv,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9379,9000,USC Aiken,,https://ncaa-api.henrygd.me/logo/sc-aiken.svg,United States,sc-aiken,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9485,9000,USC Upstate,,https://ncaa-api.henrygd.me/logo/usc-upstate.svg,United States,usc-upstate,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9486,9000,UT Martin,,https://ncaa-api.henrygd.me/logo/ut-martin.svg,United States,ut-martin,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9444,9000,UT Permian Basin,,https://ncaa-api.henrygd.me/logo/tex-permian-basin.svg,United States,tex-permian-basin,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9491,9000,UTEP,,https://ncaa-api.henrygd.me/logo/utep.svg,United States,utep,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9492,9000,UTRGV,,https://ncaa-api.henrygd.me/logo/utrgv.svg,United States,utrgv,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9493,9000,UTSA,,https://ncaa-api.henrygd.me/logo/utsa.svg,United States,utsa,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9480,9000,Union (TN),,https://ncaa-api.henrygd.me/logo/union-tn.svg,United States,union-tn,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9133,9000,University of Findlay,,https://ncaa-api.henrygd.me/logo/findlay.svg,United States,findlay,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9169,9000,University of Hartford,,https://ncaa-api.henrygd.me/logo/hartford.svg,United States,hartford,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9186,9000,University of Illinois Springfield,,https://ncaa-api.henrygd.me/logo/ill-springfield.svg,United States,ill-springfield,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9193,9000,University of Indianapolis,,https://ncaa-api.henrygd.me/logo/indianapolis.svg,United States,indianapolis,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9203,9000,University of Jamestown,,https://ncaa-api.henrygd.me/logo/jamestown.svg,United States,jamestown,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9265,9000,"University of Minnesota, Crookston",,https://ncaa-api.henrygd.me/logo/minn-crookston.svg,United States,minn-crookston,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9274,9000,University of Missouri-St. Louis,,https://ncaa-api.henrygd.me/logo/mo-st-louis.svg,United States,mo-st-louis,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9484,9000,University of South Carolina Beaufort,,https://ncaa-api.henrygd.me/logo/usc-beaufort.svg,United States,usc-beaufort,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9533,9000,University of Wisconsin-Parkside,,https://ncaa-api.henrygd.me/logo/wis-parkside.svg,United States,wis-parkside,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9482,9000,Upper Iowa University,,https://ncaa-api.henrygd.me/logo/upper-iowa.svg,United States,upper-iowa,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9487,9000,Utah,,https://ncaa-api.henrygd.me/logo/utah.svg,United States,utah,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9488,9000,Utah St.,,https://ncaa-api.henrygd.me/logo/utah-st.svg,United States,utah-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9489,9000,Utah Tech,,https://ncaa-api.henrygd.me/logo/utah-tech.svg,United States,utah-tech,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9490,9000,Utah Valley,,https://ncaa-api.henrygd.me/logo/utah-valley.svg,United States,utah-valley,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9497,9000,VCU,,https://ncaa-api.henrygd.me/logo/vcu.svg,United States,vcu,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9504,9000,VMI,,https://ncaa-api.henrygd.me/logo/vmi.svg,United States,vmi,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9494,9000,Valdosta St.,,https://ncaa-api.henrygd.me/logo/valdosta-st.svg,United States,valdosta-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9495,9000,Valparaiso,,https://ncaa-api.henrygd.me/logo/valparaiso.svg,United States,valparaiso,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9496,9000,Vanderbilt,,https://ncaa-api.henrygd.me/logo/vanderbilt.svg,United States,vanderbilt,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9498,9000,Vermont,,https://ncaa-api.henrygd.me/logo/vermont.svg,United States,vermont,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9499,9000,Villanova,,https://ncaa-api.henrygd.me/logo/villanova.svg,United States,villanova,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9500,9000,Virginia,,https://ncaa-api.henrygd.me/logo/virginia.svg,United States,virginia,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9501,9000,Virginia St.,,https://ncaa-api.henrygd.me/logo/virginia-st.svg,United States,virginia-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9502,9000,Virginia Tech,,https://ncaa-api.henrygd.me/logo/virginia-tech.svg,United States,virginia-tech,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9503,9000,Viterbo,,https://ncaa-api.henrygd.me/logo/viterbo.svg,United States,viterbo,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9505,9000,Wagner,,https://ncaa-api.henrygd.me/logo/wagner.svg,United States,wagner,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9506,9000,Wake Forest,,https://ncaa-api.henrygd.me/logo/wake-forest.svg,United States,wake-forest,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9507,9000,Walsh,,https://ncaa-api.henrygd.me/logo/walsh.svg,United States,walsh,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9508,9000,Warner,,https://ncaa-api.henrygd.me/logo/warner-southern.svg,United States,warner-southern,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9509,9000,Washington,,https://ncaa-api.henrygd.me/logo/washington.svg,United States,washington,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9510,9000,Washington St.,,https://ncaa-api.henrygd.me/logo/washington-st.svg,United States,washington-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9511,9000,Wayne St. (MI),,https://ncaa-api.henrygd.me/logo/wayne-st-mi.svg,United States,wayne-st-mi,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9512,9000,Wayne State College (Nebraska),,https://ncaa-api.henrygd.me/logo/wayne-st-ne.svg,United States,wayne-st-ne,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9513,9000,Webber Int'l,,https://ncaa-api.henrygd.me/logo/webber-intl.svg,United States,webber-intl,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9514,9000,Weber St.,,https://ncaa-api.henrygd.me/logo/weber-st.svg,United States,weber-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9515,9000,West Ala.,,https://ncaa-api.henrygd.me/logo/west-ala.svg,United States,west-ala,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9516,9000,West Chester,,https://ncaa-api.henrygd.me/logo/west-chester.svg,United States,west-chester,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9517,9000,West Florida,,https://ncaa-api.henrygd.me/logo/west-florida.svg,United States,west-florida,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9518,9000,West Ga.,,https://ncaa-api.henrygd.me/logo/west-ga.svg,United States,west-ga,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9519,9000,West Virginia,,https://ncaa-api.henrygd.me/logo/west-virginia.svg,United States,west-virginia,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9520,9000,Western Caro.,,https://ncaa-api.henrygd.me/logo/western-caro.svg,United States,western-caro,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9521,9000,Western Ill.,,https://ncaa-api.henrygd.me/logo/western-ill.svg,United States,western-ill,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9522,9000,Western Ky.,,https://ncaa-api.henrygd.me/logo/western-ky.svg,United States,western-ky,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9523,9000,Western Mich.,,https://ncaa-api.henrygd.me/logo/western-mich.svg,United States,western-mich,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9524,9000,Western Ore.,,https://ncaa-api.henrygd.me/logo/western-ore.svg,United States,western-ore,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9525,9000,Westminster (UT),,https://ncaa-api.henrygd.me/logo/westminster-ut.svg,United States,westminster-ut,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9526,9000,Westmont,,https://ncaa-api.henrygd.me/logo/westmont-college.svg,United States,westmont-college,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9527,9000,Whitman,,https://ncaa-api.henrygd.me/logo/whitman.svg,United States,whitman,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9528,9000,Wiley,,https://ncaa-api.henrygd.me/logo/wiley.svg,United States,wiley,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9529,9000,William & Mary,,https://ncaa-api.henrygd.me/logo/william-mary.svg,United States,william-mary,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9530,9000,Williams Baptist,,https://ncaa-api.henrygd.me/logo/williams-baptist.svg,United States,williams-baptist,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9531,9000,Wilson College,,https://ncaa-api.henrygd.me/logo/wilson.svg,United States,wilson,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9532,9000,Winthrop,,https://ncaa-api.henrygd.me/logo/winthrop.svg,United States,winthrop,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9534,9000,Wisconsin,,https://ncaa-api.henrygd.me/logo/wisconsin.svg,United States,wisconsin,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9535,9000,Wofford,,https://ncaa-api.henrygd.me/logo/wofford.svg,United States,wofford,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9536,9000,Wright St.,,https://ncaa-api.henrygd.me/logo/wright-st.svg,United States,wright-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9537,9000,Wyoming,,https://ncaa-api.henrygd.me/logo/wyoming.svg,United States,wyoming,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9538,9000,Xavier,,https://ncaa-api.henrygd.me/logo/xavier.svg,United States,xavier,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9539,9000,Yale,,https://ncaa-api.henrygd.me/logo/yale.svg,United States,yale,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9540,9000,Young Harris,,https://ncaa-api.henrygd.me/logo/young-harris.svg,United States,young-harris,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00
+9000-9541,9000,Youngstown St.,,https://ncaa-api.henrygd.me/logo/youngstown-st.svg,United States,youngstown-st,2026-09-01 18:13:15.376306+00,2026-09-01 18:13:15.376306+00

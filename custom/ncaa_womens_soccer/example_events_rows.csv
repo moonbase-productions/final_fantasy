@@ -1,0 +1,6 @@
+event_id,event_date,event_time,league_id,league_sport,league_season,league_round,uid_home,team_score_home,uid_away,team_score_away,event_status,event_video,updated_at
+1580351,2022-10-15,12:00:00,4335,,2022-2023,,4335-133725,2,4335-134384,2,,https://www.youtube.com/watch?v=dFPydaaq7Js,2026-03-02 06:30:18.719164+00
+1580352,2022-10-14,12:00:00,4335,,2022-2023,,4335-133728,0,4335-133731,0,,https://www.youtube.com/watch?v=G2JfLUlKtQc,2026-03-02 06:30:18.719164+00
+1580353,2022-10-15,12:00:00,4335,,2022-2023,,4335-134700,1,4335-134222,1,,https://www.youtube.com/watch?v=WGi-GcAV6P0,2026-03-02 06:30:18.719164+00
+1580354,2022-10-17,12:00:00,4335,,2022-2023,,4335-133740,2,4335-133730,0,,https://www.youtube.com/watch?v=vHqiZGyKAEQ,2026-03-02 06:30:18.719164+00
+1580355,2022-10-16,12:00:00,4335,,2022-2023,,4335-133722,3,4335-133817,1,,https://www.youtube.com/watch?v=ZtdMmVnRvMM,2026-03-02 06:30:18.719164+00
