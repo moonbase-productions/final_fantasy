@@ -24,12 +24,23 @@ from pipeline.config import settings, validate_runtime_settings
 from pipeline.db import get_supabase_client, get_pg_connection
 from pipeline.api.client import RateLimitedClient
 from pipeline.extract.events import fetch_events_incremental
+from pipeline.extract.ncaa_womens_soccer import (
+    fetch_ncaa_womens_soccer_incremental,
+    LEAGUE_ID as NCAA_LEAGUE_ID,
+)
 from pipeline.transform.normalize import normalize_events
 from pipeline.load.upsert import batch_upsert
 from pipeline.sql.executor import run_sql_file, apply_rls_all
 from pipeline.runners.shared import DERIVED_SQL_FILES, paginate, compute_and_prepare_stats
 from pipeline.runners.onboard import detect_new_leagues, onboard_leagues
 from pipeline.runners.scheduler import auto_activate_leagues
+
+# Leagues that don't come from TheSportsDB at all and are instead sourced by
+# a dedicated extractor (see pipeline/extract/<name>.py). These are onboarded
+# via a one-time manual historical merge (not detect_new_leagues/onboard_leagues,
+# which only know how to talk to TheSportsDB) and are excluded from every
+# TheSportsDB-calling step below.
+CUSTOM_SOURCED_LEAGUE_IDS: set[str] = {str(NCAA_LEAGUE_ID)}
 
 logging.basicConfig(
     level=logging.INFO,
@@ -72,8 +83,16 @@ def main() -> None:
         sport_type_map = {str(r["league_id"]): r["sport_type"] for r in rows}
         logger.info("Active leagues: %d", len(active_ids))
 
+        api_active_ids = [lid for lid in active_ids if lid not in CUSTOM_SOURCED_LEAGUE_IDS]
+        active_custom_league_ids = [lid for lid in active_ids if lid in CUSTOM_SOURCED_LEAGUE_IDS]
+
         # ── Step 3: Onboard never-fetched leagues ─────────────────────────
-        new_leagues = detect_new_leagues(supabase)
+        # (TheSportsDB leagues only — custom-sourced leagues are onboarded via
+        # a one-time manual historical merge, not this flow.)
+        new_leagues = [
+            r for r in detect_new_leagues(supabase)
+            if str(r["league_id"]) not in CUSTOM_SOURCED_LEAGUE_IDS
+        ]
         if new_leagues:
             onboard_leagues(client, supabase, conn, new_leagues, sport_type_map)
 
@@ -84,8 +103,21 @@ def main() -> None:
         # ── Step 5: Fetch current-season events ──────────────────────────
         season_last5 = paginate(supabase, "derived.season_last5")
         events_raw = fetch_events_incremental(
-            client, supabase, active_ids, season_last5, current_only=True,
+            client, supabase, api_active_ids, season_last5, current_only=True,
         )
+
+        if str(NCAA_LEAGUE_ID) in active_custom_league_ids:
+            ncaa_events, ncaa_assets, ncaa_team_details = fetch_ncaa_womens_soccer_incremental(supabase)
+            if ncaa_assets:
+                batch_upsert(supabase, "api.assets", ncaa_assets, "uid")
+                batch_upsert(supabase, "api.team_details", ncaa_team_details, "team_id")
+                logger.info(
+                    "Upserted %d NCAA women's soccer assets / team_details.",
+                    len(ncaa_assets),
+                )
+            events_raw.extend(ncaa_events)
+            logger.info("Fetched %d NCAA women's soccer events (custom source).", len(ncaa_events))
+
         normalized_events = normalize_events(events_raw, sport_type_map)
         batch_upsert(supabase, "api.events", normalized_events, "event_id")
         logger.info("Upserted %d current-season events.", len(normalized_events))

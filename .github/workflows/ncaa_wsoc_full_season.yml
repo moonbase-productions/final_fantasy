@@ -1,0 +1,48 @@
+# Weekly full-season NCAA D1 women's soccer rescrape (catches late score
+# corrections and games missed by the 3-day window), then derived/stats rebuild.
+name: NCAA Women's Soccer — Full Season (weekly)
+
+on:
+  schedule:
+    - cron: "45 8 * * 1"     # Mondays 08:45 UTC (3:45am ET)
+  workflow_dispatch:
+
+concurrency:
+  group: pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  ncaa-full-season:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+      - name: Install pipeline package
+        run: pip install -e .
+      - name: Days since season start (Aug 1)
+        id: window
+        run: |
+          y=$(date -u +%Y); [ "$(date -u +%-m)" -lt 7 ] && y=$((y-1))
+          echo "days=$(( ($(date -u +%s) - $(date -u -d "$y-08-01" +%s)) / 86400 + 1 ))" >> "$GITHUB_OUTPUT"
+      - name: Full-season NCAA update
+        run: python scripts/update_ncaa_womens_soccer.py --days-back ${{ steps.window.outputs.days }}
+        env:
+          SUPABASE_URL:               ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY:  ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SPORTSDB_API_KEY:           ${{ secrets.SPORTSDB_API_KEY }}
+          DB_HOST:                    ${{ secrets.DB_HOST }}
+          DB_PORT:                    ${{ secrets.DB_PORT }}
+          DB_NAME:                    ${{ secrets.DB_NAME }}
+          DB_USER:                    ${{ secrets.DB_USER }}
+          DB_PASSWORD:                ${{ secrets.DB_PASSWORD }}
+      - name: Keep schedule alive
+        if: always()
+        uses: liskin/gh-workflow-keepalive@v1

@@ -27,5 +27,11 @@ def season_events_url(league_id: int | str, season: str) -> str:
     """All events for a specific league-season combination.
 
     Season format examples: '2024-2025', '2024', 'Season 2024'
+
+    Uses the /schedule/league endpoint rather than /filter/events: both return
+    the same event set for a league-season in a single call, but /filter/events'
+    response items carry no time-of-day field at all (strTime is simply absent),
+    which silently made every event_time default to 12:00:00. /schedule/league
+    items include strTime/strTimeLocal alongside dateEvent/dateEventLocal.
     """
-    return f"{THESPORTSDB_API_BASE_URL}/filter/events/{league_id}/{season}"
+    return f"{THESPORTSDB_API_BASE_URL}/schedule/league/{league_id}/{season}"

@@ -13,22 +13,34 @@ logger = logging.getLogger(__name__)
 def _compute_home_field_advantage(df: pd.DataFrame) -> dict:
     """Compute home field advantage (HFA) in Elo points per league.
 
-    HFA is estimated from the historical difference between home and
-    away win rates. A higher HFA means the home team wins more often.
+    HFA is estimated from the pooled, league-wide difference between
+    home and away win rates: total home wins / total games in the
+    league, vs total away wins / total games in the league. Only full
+    wins count — draws contribute to neither rate's numerator (they
+    still count in the denominator via total games).
 
-    Returns: {league_id -> Elo HFA in points}
+    This is deliberately pooled across every game in the league at
+    once, NOT averaged per-team: a per-team average would weight a
+    team with 2 games the same as a team with 40, letting small
+    samples dominate the estimate. Pooling means every game counts
+    once, so the estimate is naturally weighted by how much data
+    actually exists.
+
+    HFA is computed once from the full multi-season window passed in
+    and applied as a single constant for every game in that league —
+    static by design, not season- or time-varying.
+
+    A higher HFA means the home team wins more often. Returns:
+    {league_id -> Elo HFA in points}
     """
-    home_games = df.groupby(["league_id", "uid_home"]).size()
-    home_wins  = df[df["event_result"] == "home"].groupby(["league_id", "uid_home"]).size()
-    home_win_rates = (home_wins / home_games).fillna(0)
+    total_games = df.groupby("league_id").size()
+    home_wins = df[df["event_result"] == "home"].groupby("league_id").size()
+    away_wins = df[df["event_result"] == "away"].groupby("league_id").size()
 
-    away_games = df.groupby(["league_id", "uid_away"]).size()
-    away_wins  = df[df["event_result"] == "away"].groupby(["league_id", "uid_away"]).size()
-    away_win_rates = (away_wins / away_games).fillna(0)
+    home_win_rate = (home_wins / total_games).reindex(total_games.index).fillna(0)
+    away_win_rate = (away_wins / total_games).reindex(total_games.index).fillna(0)
 
-    diff = (home_win_rates.groupby("league_id").mean()
-            - away_win_rates.groupby("league_id").mean()
-            + 0.5)
+    diff = (home_win_rate - away_win_rate + 0.5)
     diff = diff.clip(0.001, 0.999)  # Avoid log(0)
     home_field_advantage = -400 * np.log10((1 / diff) - 1)
     return home_field_advantage.to_dict()

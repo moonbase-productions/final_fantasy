@@ -3,8 +3,8 @@
 # Runs every 6 hours. Also manually triggerable.
 name: Pipeline — Full Refresh
 on:
-  schedule:
-    - cron: "0 */1 * * *"    # every 6 hours, on the hour
+  # schedule:  (replaced by pipeline_full_refresh.yml)
+  #   - cron: "0 */1 * * *"
   workflow_dispatch:         # manual trigger from GitHub UI
 jobs:
   full-refresh:

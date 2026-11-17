@@ -1,0 +1,43 @@
+# Full pipeline refresh every 6 hours: all active leagues, NCAA women's soccer
+# trailing 3 days + 21 days forward, full stat recompute and derived rebuild.
+name: Pipeline — Full Refresh (6h)
+
+on:
+  schedule:
+    - cron: "15 */6 * * *"   # 00:15, 06:15, 12:15, 18:15 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: write   # keepalive: stops GitHub auto-disabling the schedule after 60 idle days
+
+jobs:
+  full-refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+      - name: Install pipeline package
+        run: pip install -e .
+      - name: Run full refresh
+        run: python -m pipeline.runners.full_refresh
+        env:
+          SPORTSDB_API_KEY:           ${{ secrets.SPORTSDB_API_KEY }}
+          SUPABASE_URL:               ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY:  ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          DB_HOST:                    ${{ secrets.DB_HOST }}
+          DB_PORT:                    ${{ secrets.DB_PORT }}
+          DB_NAME:                    ${{ secrets.DB_NAME }}
+          DB_USER:                    ${{ secrets.DB_USER }}
+          DB_PASSWORD:                ${{ secrets.DB_PASSWORD }}
+      - name: Keep schedule alive
+        if: always()
+        uses: liskin/gh-workflow-keepalive@v1

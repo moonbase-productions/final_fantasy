@@ -93,7 +93,7 @@ def compute_basic_stats(events: pd.DataFrame) -> pd.DataFrame:
     stats["avg_points_for"] = stats["points_for"] / stats["games_played"].clip(lower=1)
     stats["avg_points_against"] = stats["points_against"] / stats["games_played"].clip(lower=1)
     stats["win_percentage"] = (
-        (stats["wins"] + 0.5 * stats["draws"]) / stats["games_played"].clip(lower=1)
+        stats["wins"] / stats["games_played"].clip(lower=1)
     ).round(4)
     stats["avg_home_points_for"] = (
         stats["home_points_for"] / stats["home_games_played"].clip(lower=1)
@@ -102,8 +102,7 @@ def compute_basic_stats(events: pd.DataFrame) -> pd.DataFrame:
         stats["home_points_against"] / stats["home_games_played"].clip(lower=1)
     )
     stats["home_win_percentage"] = (
-        (stats["home_wins"] + 0.5 * stats["home_draws"])
-        / stats["home_games_played"].clip(lower=1)
+        stats["home_wins"] / stats["home_games_played"].clip(lower=1)
     ).round(4)
 
     # --- Percentile ranks within each league-season ---

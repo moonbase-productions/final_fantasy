@@ -24,10 +24,20 @@ from pipeline.extract.leagues import fetch_all_leagues, fetch_league_details
 from pipeline.extract.seasons import fetch_seasons
 from pipeline.extract.teams import fetch_teams
 from pipeline.extract.events import fetch_events_incremental
+from pipeline.extract.ncaa_womens_soccer import (
+    fetch_ncaa_womens_soccer_incremental,
+    LEAGUE_ID as NCAA_LEAGUE_ID,
+)
 from pipeline.transform.normalize import normalize_events
 from pipeline.load.upsert import batch_upsert
 from pipeline.sql.executor import run_sql_file, apply_rls_all
 from pipeline.runners.shared import DERIVED_SQL_FILES, paginate, compute_and_prepare_stats
+
+# Leagues that don't come from TheSportsDB at all and are instead sourced by
+# a dedicated extractor (see pipeline/extract/<name>.py). These must be
+# excluded from every TheSportsDB-calling step (fetch_teams, fetch_seasons,
+# fetch_events_incremental) and instead handled by their own fetch call.
+CUSTOM_SOURCED_LEAGUE_IDS: set[str] = {str(NCAA_LEAGUE_ID)}
 
 logging.basicConfig(
     level=logging.INFO,
@@ -37,11 +47,19 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def load_registry_snapshot(supabase) -> tuple[list[str], list[str], dict[str, str]]:
-    """Read admin.league_registry and return (whitelisted_ids, active_ids, sport_type_map)."""
+def load_registry_snapshot(
+    supabase,
+) -> tuple[list[str], list[str], dict[str, str], dict[str, str]]:
+    """Read admin.league_registry.
+
+    Returns (whitelisted_ids, active_ids, sport_type_map, team_source_overrides).
+    team_source_overrides is {league_id -> team_source_league_id} for leagues
+    whose team roster must be fetched from a different TheSportsDB league id
+    (see fetch_teams()); only leagues with a non-null override are included.
+    """
     rows = (
         supabase.schema("admin").table("league_registry")
-        .select("league_id,sport_type,is_whitelisted,is_active")
+        .select("league_id,sport_type,is_whitelisted,is_active,team_source_league_id")
         .eq("is_whitelisted", True)
         .execute()
         .data
@@ -49,7 +67,12 @@ def load_registry_snapshot(supabase) -> tuple[list[str], list[str], dict[str, st
     whitelisted_ids: list[str] = [str(r["league_id"]) for r in rows]
     active_ids: list[str] = [str(r["league_id"]) for r in rows if r["is_active"]]
     sport_type_map: dict[str, str] = {str(r["league_id"]): r["sport_type"] for r in rows}
-    return whitelisted_ids, active_ids, sport_type_map
+    team_source_overrides: dict[str, str] = {
+        str(r["league_id"]): str(r["team_source_league_id"])
+        for r in rows
+        if r.get("team_source_league_id")
+    }
+    return whitelisted_ids, active_ids, sport_type_map, team_source_overrides
 
 
 def main() -> None:
@@ -66,11 +89,21 @@ def main() -> None:
         # ------------------------------------------------------------------
         # 1. Read league registry
         # ------------------------------------------------------------------
-        whitelisted_ids, active_ids, sport_type_map = load_registry_snapshot(supabase)
+        whitelisted_ids, active_ids, sport_type_map, team_source_overrides = load_registry_snapshot(supabase)
         logger.info(
             "Registry: %d whitelisted, %d active leagues.",
             len(whitelisted_ids), len(active_ids),
         )
+
+        # TheSportsDB-sourced subset: every whitelisted league except the
+        # custom-sourced ones (e.g. NCAA women's soccer), which have their
+        # own extractor and must never hit TheSportsDB endpoints.
+        api_whitelisted_ids = [
+            lid for lid in whitelisted_ids if lid not in CUSTOM_SOURCED_LEAGUE_IDS
+        ]
+        active_custom_league_ids = [
+            lid for lid in active_ids if lid in CUSTOM_SOURCED_LEAGUE_IDS
+        ]
 
         # ------------------------------------------------------------------
         # 2. Build active-league filter tables (needed by later SQL files)
@@ -109,11 +142,11 @@ def main() -> None:
             batch_upsert(supabase, "api.league_details", details, "league_id")
 
         logger.info("--- Extracting seasons ---")
-        seasons = fetch_seasons(client, whitelisted_ids)
+        seasons = fetch_seasons(client, api_whitelisted_ids)
         batch_upsert(supabase, "api.seasons", seasons, "league_id,league_season")
 
         logger.info("--- Extracting teams ---")
-        teams = fetch_teams(client, whitelisted_ids)
+        teams = fetch_teams(client, api_whitelisted_ids, team_source_overrides)
         batch_upsert(supabase, "api.assets", teams, "uid")
 
         # Rebuild season windows after new season data is loaded
@@ -125,8 +158,26 @@ def main() -> None:
         logger.info("--- Extracting events (incremental) ---")
         season_last5 = paginate(supabase, "derived.season_last5")
         events_raw = fetch_events_incremental(
-            client, supabase, whitelisted_ids, season_last5, current_only=False,
+            client, supabase, api_whitelisted_ids, season_last5, current_only=False,
         )
+
+        # Custom-sourced leagues (not on TheSportsDB) only run their own
+        # extractor when active — full_refresh doesn't re-scrape all
+        # historical seasons every run, just the same trailing+forward
+        # window daily_update uses (the one-time historical backfill is a
+        # separate, already-completed step; see custom/ncaa_womens_soccer/).
+        if str(NCAA_LEAGUE_ID) in active_custom_league_ids:
+            logger.info("--- Extracting NCAA women's soccer (custom source) ---")
+            ncaa_events, ncaa_assets, ncaa_team_details = fetch_ncaa_womens_soccer_incremental(supabase)
+            if ncaa_assets:
+                batch_upsert(supabase, "api.assets", ncaa_assets, "uid")
+                batch_upsert(supabase, "api.team_details", ncaa_team_details, "team_id")
+                logger.info(
+                    "Upserted %d NCAA women's soccer assets / team_details.",
+                    len(ncaa_assets),
+                )
+            events_raw.extend(ncaa_events)
+
         normalized_events = normalize_events(events_raw, sport_type_map)
         batch_upsert(supabase, "api.events", normalized_events, "event_id")
 
@@ -183,11 +234,28 @@ def main() -> None:
                 .to_dict()
             )
         now_iso = datetime.now(timezone.utc).isoformat()
-        for lid in whitelisted_ids:
+        for lid in api_whitelisted_ids:
             supabase.schema("admin").table("league_registry").update({
                 "last_fetched_at": now_iso,
                 "team_count": int(team_counts.get(str(lid), 0)),
             }).eq("league_id", str(lid)).execute()
+
+        # Custom-sourced leagues: the incremental fetch above only touches
+        # teams seen in the current window, not the full roster, so derive
+        # team_count from the actual row count in api.assets instead of the
+        # in-memory fetch result (which would otherwise incorrectly zero it
+        # out on every run for leagues not in api_whitelisted_ids).
+        for lid in CUSTOM_SOURCED_LEAGUE_IDS & set(whitelisted_ids):
+            count_resp = (
+                supabase.schema("api").table("assets")
+                .select("uid", count="exact")
+                .eq("league_id", lid)
+                .execute()
+            )
+            supabase.schema("admin").table("league_registry").update({
+                "last_fetched_at": now_iso,
+                "team_count": int(count_resp.count or 0),
+            }).eq("league_id", lid).execute()
 
     elapsed = time.monotonic() - start_time
     logger.info("=" * 60)

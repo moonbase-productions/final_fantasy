@@ -8,6 +8,11 @@
 --   'standard'          = home/away teams, numeric scores (soccer, basketball, …)
 --   'binary'            = winner/loser only, no meaningful score (UFC, tennis, …)
 --   'multi_competitor'  = multiple competitors per event (F1, NASCAR, cycling)
+-- team_source_league_id: optional override. When set, fetch_teams() pulls
+--   this league's roster from TheSportsDB using THIS league id instead of
+--   league_id, for leagues whose own teams endpoint returns nothing usable.
+--   Rows are still stored/keyed under the original league_id/uid — this
+--   only changes where the roster is fetched FROM, never how it's keyed.
 -- =============================================================================
 
 CREATE SCHEMA IF NOT EXISTS admin;
@@ -24,6 +29,7 @@ CREATE TABLE IF NOT EXISTS admin.league_registry (
     display_name    TEXT,
     last_fetched_at TIMESTAMPTZ,
     team_count      INT,
+    team_source_league_id TEXT,
     notes           TEXT,
     updated_at      TIMESTAMPTZ DEFAULT NOW(),
     CONSTRAINT active_requires_whitelisted

@@ -31,7 +31,7 @@ def detect_new_leagues(supabase: Client) -> list[dict]:
     rows = (
         supabase.schema("admin")
         .table("league_registry")
-        .select("league_id,sport_type,league_name")
+        .select("league_id,sport_type,league_name,team_source_league_id")
         .eq("is_active", True)
         .is_("last_fetched_at", "null")
         .execute()
@@ -62,6 +62,11 @@ def onboard_leagues(
     league_ids = [int(r["league_id"]) for r in new_leagues]
     league_id_strs = [str(lid) for lid in league_ids]
     names = {str(r["league_id"]): r.get("league_name", "?") for r in new_leagues}
+    team_source_overrides = {
+        str(r["league_id"]): str(r["team_source_league_id"])
+        for r in new_leagues
+        if r.get("team_source_league_id")
+    }
 
     logger.info(
         "Onboarding %d new league(s): %s",
@@ -80,7 +85,7 @@ def onboard_leagues(
     run_sql_file(conn, "02_season_windows.sql")
 
     # 3. Teams
-    teams = fetch_teams(client, league_ids)
+    teams = fetch_teams(client, league_ids, team_source_overrides)
     if teams:
         batch_upsert(supabase, "api.assets", teams, "uid")
     logger.info("Onboard: upserted %d teams.", len(teams))

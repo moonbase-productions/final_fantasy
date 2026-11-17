@@ -14,6 +14,16 @@ CREATE TABLE derived.season_current AS
               ) AS season_rank
         FROM api.seasons AS s
         WHERE s.league_id IN (SELECT league_id FROM derived.leagues_current)
+          -- Exclude phantom/placeholder seasons with zero events (e.g. TheSportsDB
+          -- pre-registering next season's label before any games are scheduled).
+          -- Left unfiltered, a season string that sorts after the real current
+          -- season (e.g. "2026-2027" > "2026") would outrank it and corrupt
+          -- season_current/season_past/season_last5 for the whole league.
+          AND EXISTS (
+              SELECT 1 FROM api.events AS e
+              WHERE e.league_id     = s.league_id
+                AND e.league_season = s.league_season
+          )
         GROUP BY s.league_id, s.league_season
     ) AS ranked
     WHERE season_rank = 1;
@@ -34,6 +44,16 @@ CREATE TABLE derived.season_past AS
               ) AS season_rank
         FROM api.seasons AS s
         WHERE s.league_id IN (SELECT league_id FROM derived.leagues_current)
+          -- Exclude phantom/placeholder seasons with zero events (e.g. TheSportsDB
+          -- pre-registering next season's label before any games are scheduled).
+          -- Left unfiltered, a season string that sorts after the real current
+          -- season (e.g. "2026-2027" > "2026") would outrank it and corrupt
+          -- season_current/season_past/season_last5 for the whole league.
+          AND EXISTS (
+              SELECT 1 FROM api.events AS e
+              WHERE e.league_id     = s.league_id
+                AND e.league_season = s.league_season
+          )
         GROUP BY s.league_id, s.league_season
     ) AS ranked
     WHERE season_rank = 2;
@@ -55,6 +75,16 @@ CREATE TABLE derived.season_last5 AS
               ) AS season_rank
         FROM api.seasons AS s
         WHERE s.league_id IN (SELECT league_id FROM derived.leagues_current)
+          -- Exclude phantom/placeholder seasons with zero events (e.g. TheSportsDB
+          -- pre-registering next season's label before any games are scheduled).
+          -- Left unfiltered, a season string that sorts after the real current
+          -- season (e.g. "2026-2027" > "2026") would outrank it and corrupt
+          -- season_current/season_past/season_last5 for the whole league.
+          AND EXISTS (
+              SELECT 1 FROM api.events AS e
+              WHERE e.league_id     = s.league_id
+                AND e.league_season = s.league_season
+          )
         GROUP BY s.league_id, s.league_season
     ) AS ranked
     WHERE season_rank <= 5;

@@ -52,7 +52,7 @@ def load_registry() -> pd.DataFrame:
         .select(
             "league_id,league_name,league_sport,sport_type,"
             "is_whitelisted,is_active,display_name,"
-            "last_fetched_at,team_count,notes,updated_at"
+            "last_fetched_at,team_count,team_source_league_id,notes,updated_at"
         )
         .execute()
         .data
@@ -242,8 +242,8 @@ def _paginated_select(
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
-def _update_registry(league_id: int, field: str, value: bool) -> None:
-    """Write a single boolean toggle to admin.league_registry."""
+def _update_registry(league_id: int, field: str, value: object) -> None:
+    """Write a single field (boolean toggle or text value) to admin.league_registry."""
     client = get_client()
     client.schema("admin").table("league_registry").update(
         {field: value, "updated_at": datetime.now(timezone.utc).isoformat()}
@@ -323,7 +323,7 @@ def page_league_manager() -> None:
     st.divider()
 
     # Column headers
-    hdr = st.columns([3, 2, 2, 1, 1, 1, 2])
+    hdr = st.columns([3, 2, 2, 1, 1, 1, 2, 2])
     hdr[0].markdown("**League**")
     hdr[1].markdown("**Sport**")
     hdr[2].markdown("**Sport Type**")
@@ -331,10 +331,17 @@ def page_league_manager() -> None:
     hdr[4].markdown("**Whitelist**")
     hdr[5].markdown("**Active**")
     hdr[6].markdown("**Last Fetched**")
+    hdr[7].markdown("**Team Source Override**")
+    st.caption(
+        "Team Source Override: if set, teams are fetched from THIS league id "
+        "instead (for leagues whose own teams endpoint returns nothing usable). "
+        "Rows are still keyed under the league's own id. Leave blank normally — "
+        "e.g. EuroLeague Women's own teams endpoint works fine and needs no override."
+    )
     st.divider()
 
     for _, row in view.iterrows():
-        cols = st.columns([3, 2, 2, 1, 1, 1, 2])
+        cols = st.columns([3, 2, 2, 1, 1, 1, 2, 2])
         display = row["display_name"] if pd.notna(row["display_name"]) else row["league_name"]
         cols[0].write(display)
         cols[1].write(row["league_sport"] if pd.notna(row.get("league_sport")) else "—")
@@ -376,6 +383,24 @@ def page_league_manager() -> None:
             cols[6].write(f"{h}h ago")
         else:
             cols[6].write("never")
+
+        # Team source override (fetch teams from a different league id,
+        # still keyed under this league's own id — see caption above)
+        override_current = (
+            str(row["team_source_league_id"])
+            if pd.notna(row.get("team_source_league_id")) else ""
+        )
+        override_key = f"tso_{row['league_id']}"
+        new_override = cols[7].text_input(
+            "", value=override_current, key=override_key,
+            label_visibility="collapsed", placeholder="league id (optional)",
+        )
+        new_override = new_override.strip()
+        if new_override != override_current:
+            _update_registry(
+                row["league_id"], "team_source_league_id", new_override or None,
+            )
+            st.rerun()
 
 
 # ── Page 2: League Discovery ─────────────────────────────────────────────────

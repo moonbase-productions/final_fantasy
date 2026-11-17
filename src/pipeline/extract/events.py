@@ -109,17 +109,34 @@ def _parse_events(
     season: str,
 ) -> list[dict]:
     """Parse raw API event response into a list of dicts for api_events."""
-    # API v2 returns results under "filter"; fall back to "events" for older responses.
-    events = data.get("filter") or data.get("events") or []
+    # /schedule/league returns results under "schedule"; fall back to "filter"/
+    # "events" for older/alternate response shapes. ("filter" carries no
+    # time-of-day field at all, so event_time is only real when parsing a
+    # "schedule" response.)
+    events = data.get("schedule") or data.get("filter") or data.get("events") or []
     parsed: list[dict] = []
     now = datetime.now(timezone.utc).isoformat()
+
+    # Always key events under the league we queried for, not the API's own
+    # per-item "idLeague" field. Mirrors the same fix in extract/teams.py:
+    # TheSportsDB can tag records for aggregate/multi-country leagues
+    # inconsistently, so uid_home/uid_away must line up with the asset
+    # rows fetch_teams() produces for this same queried league_id.
+    league_id_str = str(league_id)
 
     for item in events:
         event_id = item.get("idEvent")
         if not event_id:
             continue
 
-        league_id_str = item.get("idLeague") or str(league_id)
+        api_league_id = item.get("idLeague")
+        if api_league_id is not None and str(api_league_id) != league_id_str:
+            logger.warning(
+                "Event %s: API tagged idLeague=%s but keying under queried "
+                "league_id=%s.",
+                event_id, api_league_id, league_id_str,
+            )
+
         home_id = item.get("idHomeTeam") or ""
         away_id = item.get("idAwayTeam") or ""
 
@@ -130,7 +147,7 @@ def _parse_events(
         record = {
             "event_id": event_id,
             "event_date": sanitize_date(item.get("dateEvent") or "1970-01-01"),
-            "event_time": sanitize_time(item.get("strTime") or ""),
+            "event_time": sanitize_time(item.get("strTime") or ""),  # UTC only, per design decision
             "league_id": league_id_str,
             "league_sport": item.get("strSport") or "",
             "league_season": season,

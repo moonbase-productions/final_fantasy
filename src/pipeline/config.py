@@ -53,12 +53,33 @@ class Settings(BaseSettings):
     INIT_ELO: ClassVar[int] = 1500
 
     # Elo K-values by sport. Governs how much each result shifts ratings.
+    # Keys must match the `league_sport` string TheSportsDB returns for
+    # that league exactly (case-sensitive) — a mismatch silently falls
+    # back to "default" with no error.
+    #
     # Soccer: 20.75 (standard for international Elo)
-    # Baseball: 4.0 (low-scoring, high variance)
-    # default: applies to all other sports
+    # Baseball: 4.0 (162-game season, low-scoring, high per-game variance
+    #   — ratings should move slowly on any single result)
+    # Basketball: 20.0 (long season — NBA 82 games — high game volume
+    #   lets ratings converge even at a moderate K)
+    # American Football: 25.0 (short season — NFL 17 games, NCAA ~12-15
+    #   — fewer data points per season, so ratings need to react faster
+    #   per game to stay meaningful)
+    # Ice Hockey: 20.0 (comparable season length/game volume to
+    #   basketball; kept at the standard baseline)
+    # Rugby: 22.0 (shorter domestic seasons than soccer, ~22-26 rounds
+    #   — slightly faster-reacting than soccer, well short of NFL's K)
+    # Cricket: 20.0 (T20/ODI league formats, moderate game counts)
+    # default: applies to any sport not listed above (e.g. esports,
+    #   binary/multi-competitor sports)
     K_VALUES: ClassVar[dict[str, float]] = {
         "Soccer": 20.75,
         "Baseball": 4.0,
+        "Basketball": 20.0,
+        "American Football": 25.0,
+        "Ice Hockey": 20.0,
+        "Rugby": 22.0,
+        "Cricket": 20.0,
         "default": 20.0,
     }
 

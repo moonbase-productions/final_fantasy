@@ -60,7 +60,7 @@ CREATE TABLE derived.asset_last_10 AS
         , wins
         , draws
         , losses
-        , (wins + 0.5 * draws) / games                             AS win_percentage
+        , wins / games                                              AS win_percentage
         , total_points_for
         , total_points_against
         , winning_points_for

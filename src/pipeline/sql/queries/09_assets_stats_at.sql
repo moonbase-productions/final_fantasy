@@ -12,7 +12,7 @@ CREATE TABLE derived.assets_stats_at AS
                 THEN 0
             ELSE ROUND(
                 100.0
-                * (SUM(ts.wins) + 0.5 * SUM(ts.draws))
+                * SUM(ts.wins)
                 / (SUM(ts.wins) + SUM(ts.losses) + SUM(ts.draws)),
                 1
             )
