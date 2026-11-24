@@ -194,6 +194,9 @@ def main() -> None:
         # ------------------------------------------------------------------
         # 5. Rebuild event SQL tables
         # ------------------------------------------------------------------
+        # Re-run season windows now that events are loaded, so a newly added
+        # league's placeholder seasons drop out before stats are computed.
+        run_sql_file(conn, "02_season_windows.sql")
         for sql_file in ["03_web_events.sql", "04_events_scored.sql", "05_events_split.sql"]:
             run_sql_file(conn, sql_file)
 

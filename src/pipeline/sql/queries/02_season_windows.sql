@@ -19,10 +19,19 @@ CREATE TABLE derived.season_current AS
           -- Left unfiltered, a season string that sorts after the real current
           -- season (e.g. "2026-2027" > "2026") would outrank it and corrupt
           -- season_current/season_past/season_last5 for the whole league.
-          AND EXISTS (
-              SELECT 1 FROM api.events AS e
-              WHERE e.league_id     = s.league_id
-                AND e.league_season = s.league_season
+          -- Bootstrap: a league with no events at all yet (just added) keeps
+          -- all its seasons, otherwise it could never get its first events
+          -- fetched (fetch_events_incremental only fetches seasons listed here).
+          AND (
+              EXISTS (
+                  SELECT 1 FROM api.events AS e
+                  WHERE e.league_id     = s.league_id
+                    AND e.league_season = s.league_season
+              )
+              OR NOT EXISTS (
+                  SELECT 1 FROM api.events AS e
+                  WHERE e.league_id = s.league_id
+              )
           )
         GROUP BY s.league_id, s.league_season
     ) AS ranked
@@ -49,10 +58,19 @@ CREATE TABLE derived.season_past AS
           -- Left unfiltered, a season string that sorts after the real current
           -- season (e.g. "2026-2027" > "2026") would outrank it and corrupt
           -- season_current/season_past/season_last5 for the whole league.
-          AND EXISTS (
-              SELECT 1 FROM api.events AS e
-              WHERE e.league_id     = s.league_id
-                AND e.league_season = s.league_season
+          -- Bootstrap: a league with no events at all yet (just added) keeps
+          -- all its seasons, otherwise it could never get its first events
+          -- fetched (fetch_events_incremental only fetches seasons listed here).
+          AND (
+              EXISTS (
+                  SELECT 1 FROM api.events AS e
+                  WHERE e.league_id     = s.league_id
+                    AND e.league_season = s.league_season
+              )
+              OR NOT EXISTS (
+                  SELECT 1 FROM api.events AS e
+                  WHERE e.league_id = s.league_id
+              )
           )
         GROUP BY s.league_id, s.league_season
     ) AS ranked
@@ -80,10 +98,19 @@ CREATE TABLE derived.season_last5 AS
           -- Left unfiltered, a season string that sorts after the real current
           -- season (e.g. "2026-2027" > "2026") would outrank it and corrupt
           -- season_current/season_past/season_last5 for the whole league.
-          AND EXISTS (
-              SELECT 1 FROM api.events AS e
-              WHERE e.league_id     = s.league_id
-                AND e.league_season = s.league_season
+          -- Bootstrap: a league with no events at all yet (just added) keeps
+          -- all its seasons, otherwise it could never get its first events
+          -- fetched (fetch_events_incremental only fetches seasons listed here).
+          AND (
+              EXISTS (
+                  SELECT 1 FROM api.events AS e
+                  WHERE e.league_id     = s.league_id
+                    AND e.league_season = s.league_season
+              )
+              OR NOT EXISTS (
+                  SELECT 1 FROM api.events AS e
+                  WHERE e.league_id = s.league_id
+              )
           )
         GROUP BY s.league_id, s.league_season
     ) AS ranked
