@@ -28,6 +28,10 @@ from pipeline.extract.ncaa_womens_soccer import (
     fetch_ncaa_womens_soccer_incremental,
     LEAGUE_ID as NCAA_LEAGUE_ID,
 )
+from pipeline.extract.ncaa_womens_basketball import (
+    fetch_ncaa_womens_basketball_incremental,
+    LEAGUE_ID as WBB_LEAGUE_ID,
+)
 from pipeline.extract.masl import LEAGUE_ID as MASL_LEAGUE_ID
 from pipeline.transform.normalize import normalize_events
 from pipeline.load.upsert import batch_upsert
@@ -41,7 +45,7 @@ from pipeline.runners.scheduler import auto_activate_leagues
 # via a one-time manual historical merge (not detect_new_leagues/onboard_leagues,
 # which only know how to talk to TheSportsDB) and are excluded from every
 # TheSportsDB-calling step below.
-CUSTOM_SOURCED_LEAGUE_IDS: set[str] = {str(NCAA_LEAGUE_ID), str(MASL_LEAGUE_ID)}
+CUSTOM_SOURCED_LEAGUE_IDS: set[str] = {str(NCAA_LEAGUE_ID), str(MASL_LEAGUE_ID), str(WBB_LEAGUE_ID)}
 
 logging.basicConfig(
     level=logging.INFO,
@@ -118,6 +122,18 @@ def main() -> None:
                 )
             events_raw.extend(ncaa_events)
             logger.info("Fetched %d NCAA women's soccer events (custom source).", len(ncaa_events))
+
+        if str(WBB_LEAGUE_ID) in active_custom_league_ids:
+            logger.info("--- Extracting NCAA women's basketball (custom source) ---")
+            wbb_events, wbb_assets, wbb_team_details, wbb_seasons = fetch_ncaa_womens_basketball_incremental(supabase)
+            if wbb_seasons:
+                batch_upsert(supabase, "api.seasons", [
+                    {"league_id": str(WBB_LEAGUE_ID), "league_season": s} for s in wbb_seasons
+                ], "league_id,league_season")
+            if wbb_assets:
+                batch_upsert(supabase, "api.assets", wbb_assets, "uid")
+                batch_upsert(supabase, "api.team_details", wbb_team_details, "team_id")
+            events_raw.extend(wbb_events)
 
         normalized_events = normalize_events(events_raw, sport_type_map)
         batch_upsert(supabase, "api.events", normalized_events, "event_id")

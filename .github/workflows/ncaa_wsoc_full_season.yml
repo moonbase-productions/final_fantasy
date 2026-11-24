@@ -43,6 +43,22 @@ jobs:
           DB_NAME:                    ${{ secrets.DB_NAME }}
           DB_USER:                    ${{ secrets.DB_USER }}
           DB_PASSWORD:                ${{ secrets.DB_PASSWORD }}
+      - name: Days since women's basketball season start (Oct 25)
+        id: wbb_window
+        run: |
+          y=$(date -u +%Y); [ "$(date -u +%-m)" -lt 7 ] && y=$((y-1))
+          echo "since=$y-10-25" >> "$GITHUB_OUTPUT"
+      - name: Full-season NCAA women's basketball update
+        run: python scripts/update_ncaa_womens_basketball.py --since ${{ steps.wbb_window.outputs.since }}
+        env:
+          SUPABASE_URL:               ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY:  ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SPORTSDB_API_KEY:           ${{ secrets.SPORTSDB_API_KEY }}
+          DB_HOST:                    ${{ secrets.DB_HOST }}
+          DB_PORT:                    ${{ secrets.DB_PORT }}
+          DB_NAME:                    ${{ secrets.DB_NAME }}
+          DB_USER:                    ${{ secrets.DB_USER }}
+          DB_PASSWORD:                ${{ secrets.DB_PASSWORD }}
       - name: Keep schedule alive
         if: always()
         uses: liskin/gh-workflow-keepalive@v1

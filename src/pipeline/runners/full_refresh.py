@@ -28,6 +28,10 @@ from pipeline.extract.ncaa_womens_soccer import (
     fetch_ncaa_womens_soccer_incremental,
     LEAGUE_ID as NCAA_LEAGUE_ID,
 )
+from pipeline.extract.ncaa_womens_basketball import (
+    fetch_ncaa_womens_basketball_incremental,
+    LEAGUE_ID as WBB_LEAGUE_ID,
+)
 from pipeline.extract.masl import build_masl_rows, LEAGUE_ID as MASL_LEAGUE_ID
 from pipeline.transform.normalize import normalize_events
 from pipeline.load.upsert import batch_upsert
@@ -38,7 +42,7 @@ from pipeline.runners.shared import DERIVED_SQL_FILES, paginate, compute_and_pre
 # a dedicated extractor (see pipeline/extract/<name>.py). These must be
 # excluded from every TheSportsDB-calling step (fetch_teams, fetch_seasons,
 # fetch_events_incremental) and instead handled by their own fetch call.
-CUSTOM_SOURCED_LEAGUE_IDS: set[str] = {str(NCAA_LEAGUE_ID), str(MASL_LEAGUE_ID)}
+CUSTOM_SOURCED_LEAGUE_IDS: set[str] = {str(NCAA_LEAGUE_ID), str(MASL_LEAGUE_ID), str(WBB_LEAGUE_ID)}
 
 logging.basicConfig(
     level=logging.INFO,
@@ -178,6 +182,18 @@ def main() -> None:
                     len(ncaa_assets),
                 )
             events_raw.extend(ncaa_events)
+
+        if str(WBB_LEAGUE_ID) in active_custom_league_ids:
+            logger.info("--- Extracting NCAA women's basketball (custom source) ---")
+            wbb_events, wbb_assets, wbb_team_details, wbb_seasons = fetch_ncaa_womens_basketball_incremental(supabase)
+            if wbb_seasons:
+                batch_upsert(supabase, "api.seasons", [
+                    {"league_id": str(WBB_LEAGUE_ID), "league_season": s} for s in wbb_seasons
+                ], "league_id,league_season")
+            if wbb_assets:
+                batch_upsert(supabase, "api.assets", wbb_assets, "uid")
+                batch_upsert(supabase, "api.team_details", wbb_team_details, "team_id")
+            events_raw.extend(wbb_events)
 
         # MASL: loaded from season snapshots in custom/masl/ (see extract/masl.py).
         if str(MASL_LEAGUE_ID) in active_custom_league_ids:
