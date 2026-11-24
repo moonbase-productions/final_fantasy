@@ -14,3 +14,4 @@ dist/
 *.json
 *.pkl
 log_files/
+!custom/masl/*.json

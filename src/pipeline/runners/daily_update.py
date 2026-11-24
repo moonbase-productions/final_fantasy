@@ -28,6 +28,7 @@ from pipeline.extract.ncaa_womens_soccer import (
     fetch_ncaa_womens_soccer_incremental,
     LEAGUE_ID as NCAA_LEAGUE_ID,
 )
+from pipeline.extract.masl import LEAGUE_ID as MASL_LEAGUE_ID
 from pipeline.transform.normalize import normalize_events
 from pipeline.load.upsert import batch_upsert
 from pipeline.sql.executor import run_sql_file, apply_rls_all
@@ -40,7 +41,7 @@ from pipeline.runners.scheduler import auto_activate_leagues
 # via a one-time manual historical merge (not detect_new_leagues/onboard_leagues,
 # which only know how to talk to TheSportsDB) and are excluded from every
 # TheSportsDB-calling step below.
-CUSTOM_SOURCED_LEAGUE_IDS: set[str] = {str(NCAA_LEAGUE_ID)}
+CUSTOM_SOURCED_LEAGUE_IDS: set[str] = {str(NCAA_LEAGUE_ID), str(MASL_LEAGUE_ID)}
 
 logging.basicConfig(
     level=logging.INFO,
